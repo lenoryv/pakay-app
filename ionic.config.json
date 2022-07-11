@@ -1,0 +1,7 @@
+{
+  "name": "pakay-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
