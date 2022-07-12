@@ -1,4 +1,3 @@
-FROM node:13-alpine as build
-RUN npm install -g ionic
-RUN npm install
-
+# syntax=docker/dockerfile:1
+FROM busybox
+CMD echo "Hello world! This is my first Docker image."
