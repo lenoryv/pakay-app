@@ -1,20 +1,14 @@
-FROM node:12.4.0-alpine as debug
+FROM beevelop/cordova
 
-WORKDIR /work/
+ENV IONIC_VERSION 6.20.1
 
-COPY ./src/package.json /work/package.json
-RUN npm install
-RUN npm install -g nodemon
-
-COPY ./src/ /work/src/
-
-ENTRYPOINT [ "nodemon","--inspect=0.0.0.0","./src/server.js" ]
-
-FROM node:12.4.0-alpine as prod
-
-WORKDIR /work/
-COPY ./src/package.json /work/package.json
-RUN npm install
-COPY ./src/ /work/
-
-CMD node .
+RUN apt-get update && apt-get install -y git bzip2 openssh-client && \
+    npm install -g --unsafe-perm @ionic/cli@${IONIC_VERSION} && \
+    ionic --version && \
+    cd /tmp && \
+    ionic start myNewProject blank --type=ionic-angular --capacitor && \
+    cd myNewProject && \
+    ionic build && \
+    ionic capacitor build android --no-open && \
+    rm -rf /tmp/myNewProject && \
+    rm -rf /var/lib/apt/lists/* && apt-get clean

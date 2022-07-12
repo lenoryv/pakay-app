@@ -16,8 +16,8 @@ jobs:
 
     - name: docker build 
       run: |
-        docker run --rm -v /your/app:/myApp postor/ionic-android-build ionic cordova build android
- 
+        docker build -t lenoryv/pakay:v1.0
+        
     - name: docker push
       run: |
         docker push lenoryv/pakay:v1.0
