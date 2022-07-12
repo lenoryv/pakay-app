@@ -1,14 +1,10 @@
-FROM beevelop/cordova
-
-ENV IONIC_VERSION 6.20.1
-
-RUN apt-get update && apt-get install -y git bzip2 openssh-client && \
-    npm install -g --unsafe-perm @ionic/cli@${IONIC_VERSION} && \
-    ionic --version && \
-    cd /tmp && \
-    ionic start myNewProject blank --type=ionic-angular --capacitor && \
-    cd myNewProject && \
-    ionic build && \
-    ionic capacitor build android --no-open && \
-    rm -rf /tmp/myNewProject && \
-    rm -rf /var/lib/apt/lists/* && apt-get clean
+FROM node:13-alpine as build
+WORKDIR /app
+COPY package*.json /app/
+RUN npm install -g ionic
+RUN npm install
+COPY ./ /app/
+RUN npm run-script build:prod
+FROM nginx:alpine
+RUN rm -rf /usr/share/nginx/html/*
+COPY --from=build /app/www/ /usr/share/nginx/html/
