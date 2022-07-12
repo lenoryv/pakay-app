@@ -20,4 +20,4 @@ jobs:
 
     - name: docker push
       run: |
-        docker push lenoryv/pakay
+        docker push
