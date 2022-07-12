@@ -14,9 +14,9 @@ jobs:
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
 
-    - name: docker build node.js
+    - name: docker build 
       run: |
-        docker build -t lenoryv/pakay:v1.0
+        docker run --rm -v /your/app:/myApp postor/ionic-android-build ionic cordova build android
  
     - name: docker push
       run: |
