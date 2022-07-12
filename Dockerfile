@@ -1,6 +1,6 @@
-FROM node:13-alpine as build
+FROM node:1-alpine as build
 WORKDIR /app
 COPY package*.json . ./
 RUN npm install -g ionic
 RUN npm install
-RUN ionic build android
+RUN ionic build --prod
