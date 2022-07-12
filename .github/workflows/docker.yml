@@ -14,9 +14,10 @@ jobs:
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
 
-    - name: docker build and push
-      uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
-        with:
-          context: .
-          push: true
-          tags: '${{ secrets.DOCKER_USERNAME }}/pakay-app'
+    - name: docker build nodejs
+      run: |
+        docker build ./antroid/app -t lenoryv/pakay:v1.0
+ 
+    - name: docker push
+      run: |
+        docker push lenoryv/pakay:v1.0
