@@ -16,7 +16,7 @@ jobs:
 
     - name: docker build nodejs
       run: |
-        docker build ./antroid/app -t lenoryv/pakay:v1.0
+        docker build ./android/app -t lenoryv/pakay:v1.0
  
     - name: docker push
       run: |
