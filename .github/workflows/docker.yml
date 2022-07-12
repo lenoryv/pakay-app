@@ -16,7 +16,7 @@ jobs:
 
     - name: docker build 
       run: |
-        docker build - < Dockerfile
+        docker build -t ${{ secrets.DOCKER_USER }}/pakay:v1.0
 
     - name: docker push
       run: |
