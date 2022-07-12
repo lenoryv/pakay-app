@@ -16,7 +16,7 @@ jobs:
 
     - name: docker build android
       run: |
-        docker build ./src -t lenoryv/pakay:v1.0
+        docker build -t lenoryv/pakay:v1.0
  
     - name: docker push
       run: |
