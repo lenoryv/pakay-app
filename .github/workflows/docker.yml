@@ -16,9 +16,9 @@ jobs:
 
     - name: docker build 
       run: |
-        docker build -t lenoryv/pakay .
-        docker run lenoryv/pakay
+        docker build -t ${{ secrets.DOCKER_USER }}/pakay .
+        docker run ${{ secrets.DOCKER_USER }}/pakay
 
     - name: docker push
       run: |
-        docker push lenoryv/pakay
+        docker push ${{ secrets.DOCKER_USER }}/pakay
