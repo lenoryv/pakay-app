@@ -16,7 +16,7 @@ jobs:
 
     - name: docker build 
       run: |
-        docker build -t lenoryv/pakay
+        docker build -t lenoryv/pakay .
         docker run lenoryv/pakay
 
     - name: docker push
