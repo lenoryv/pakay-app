@@ -1,3 +1,6 @@
-# syntax=docker/dockerfile:1
-FROM busybox
-CMD echo "Hello world! This is my first Docker image."
+FROM node:16-alpine as build
+WORKDIR /app
+COPY package*.json . ./
+RUN npm install -g ionic
+RUN npm install
+RUN ionic build android
