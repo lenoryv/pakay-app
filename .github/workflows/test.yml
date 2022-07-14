@@ -6,15 +6,12 @@ on:
       - master
       - staging
 jobs:
-  unit-test-ionic:
+  karma-test-ionic:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: '16'
-      - uses: actions/checkout@v2
       - run: |
-          npm remove -g ionic
-          npm install -g ionic
           npm run test
