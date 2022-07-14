@@ -1,20 +1,18 @@
-name: test
-on: 
-  pull_request:
-  push:
-    branches:
-      - master
-      - staging
+name: Ionic test
+on: [push]
 jobs:
-  karma-test-ionic:
+  ng-test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '16'
-      - run: |
-          npm install
-          npm install -g @angular/cli@latest
-          npm install -g @ionic/cli
-          npm run test
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: npm ci
+      run: npm ci
+    - name: Angular test in production mode
+      run: npm run test:ci
