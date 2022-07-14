@@ -14,5 +14,6 @@ jobs:
         with:
           node-version: '16'
       - run: |
+          npm install -g @angular/cli@latest
           npm install -g @ionic/cli
           npm run test
