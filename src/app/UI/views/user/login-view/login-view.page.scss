@@ -1,0 +1,90 @@
+.container{
+    padding: 1.2em;
+    width: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.title{
+    font-size: 1em;
+    background: var(--ion-color-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 400;
+}
+
+.imgCont{
+    display: flex;
+    justify-content: center;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+img{
+    width: 80%;
+    height: auto;  
+}
+
+.spanStyle1{
+    font-weight: 550;
+}
+
+.inputStyle{
+    background-color: aliceblue;   
+    color: black;
+    border-radius: 15px;
+    font-size: small;
+    height: 5vh;
+    max-height: 5vh;
+    margin-top: 1.5em;
+    padding: 0.5em;
+}
+.buttonStyle{
+    height: 5vh;
+    width: 50vw;
+    background: var(--ion-color-primary);
+    border-radius: 15px;
+    font-size: 0.7em;
+    font-weight: 100;
+    
+}
+
+
+
+.separate{
+    display: flex;
+    justify-content: center;
+    color: #848484;
+    font-size: 0.8em;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+.btn-Word{
+    background-color: transparent;
+    background: var(--ion-color-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+    font-size: 0.7em;
+}
+.btn-google{
+    background-color: transparent;
+}
+
+ion-icon{
+    color: #0066CC;
+    font-size: 1.5em;
+}
+
+.spanStyle2{
+    font-size: 0.7em;
+}
+.btn-text{
+    font-size: 1.2em;
+    font-weight: 700;
+}
+.cont-btn{
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5em;
+}
+
