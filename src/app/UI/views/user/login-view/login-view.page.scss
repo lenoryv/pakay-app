@@ -8,6 +8,7 @@
 .title{
     font-size: 1em;
     background: var(--ion-color-primary);
+    background-clip:var(--ion-color-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: 400;
@@ -61,6 +62,7 @@ img{
 .btn-Word{
     background-color: transparent;
     background: var(--ion-color-primary);
+    background-clip:var(--ion-color-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: 600;
