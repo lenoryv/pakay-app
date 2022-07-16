@@ -1,18 +1,8 @@
 name: Test
 
-version: 2
 jobs:
-  build:
-    working_directory: ~/pakay-app
-    docker:
-      - image: circleci/node:10-browsers
-    steps:
-      - checkout
-      - restore_cache:
-          key: pakay-app-{{ .Branch }}-{{ checksum "package-lock.json" }}
-      - run: npm install
-      - save_cache:
-          key: pakay-app-{{ .Branch }}-{{ checksum "package-lock.json" }}
-          paths:
-            - "node_modules"
-      - run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+  test:
+    steps: checkout
+      run: 
+      npm install
+      npm run test
