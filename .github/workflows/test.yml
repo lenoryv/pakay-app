@@ -1,18 +1,18 @@
-name: Ionic test
-on: [push]
+name: Test
+
+version: 2
 jobs:
-  ng-test:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [14.x]
+  build:
+    working_directory: ~/pakay-app
+    docker:
+      - image: circleci/node:10-browsers
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: npm ci
-      run: npm ci
-    - name: Angular test in production mode
-      run: npm run test:ci
+      - checkout
+      - restore_cache:
+          key: pakay-app-{{ .Branch }}-{{ checksum "package-lock.json" }}
+      - run: npm install
+      - save_cache:
+          key: pakay-app-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          paths:
+            - "node_modules"
+      - run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
