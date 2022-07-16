@@ -1,12 +1,9 @@
 name: Test
-
 on:
-  workflow_dispatch:
   push:
     branches:
       - master
       - staging
-
 jobs:
   test:
     steps:
