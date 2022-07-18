@@ -49,9 +49,9 @@ img{
     border: 1.5px solid #ededed;
     outline: none;
     font-size: small;
-    height: 6vh;
-    max-height: 6vh;
-    min-height: 2.5em;
+    height: 3rem;
+    max-height: 3rem;
+    min-height: 3rem;
     margin-top: 1em;
     padding: 1em;
 }
@@ -68,9 +68,9 @@ img{
 }
 .buttonStyle{
     width: 50vw;
-    height: 5vh;
-    max-height: 5   vh;
-    min-height: 2.5em;
+    height: 3rem;
+    max-height: 3rem;
+    min-height: 3rem;
     background: var(--ion-color-primary);
     border-radius: 8px;
     font-size: 0.7em;
@@ -102,8 +102,10 @@ img{
     background-color: transparent;
     border: 1px solid #cacaca;
     border-radius: 100%;
-    height: 5vh;
-    width: 5vh;
+    height: 3rem;
+    width: 3rem;
+    min-height: 3rem;
+    max-width: 3rem;
 }
 
 ion-icon{
