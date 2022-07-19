@@ -8,20 +8,20 @@ import { IonContent } from "@ionic/angular";
 })
 export class LoginViewPage implements OnInit {
 
-  @ViewChild('content') private content: IonContent;
+  @ViewChild('content', { static: false }) content;
 
   constructor() { }
 
   setFocus(){
-    setTimeout(() => {
-      if (this.content.scrollToBottom) {
-          this.content.scrollToBottom(100);
-      }
-    }, 500);
+    this.content.scrollToBottom(300);
+    console.log("si")
   }
 
-  ngOnInit() {
+  ionViewDidEnter(){
     this.setFocus();
+  }
+  ngOnInit() {
+    
   }
 
 }
