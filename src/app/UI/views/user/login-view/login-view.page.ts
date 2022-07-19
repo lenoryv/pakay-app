@@ -15,7 +15,7 @@ export class LoginViewPage implements OnInit {
   setFocus(){
     setTimeout(() => {
       if (this.content.scrollToBottom) {
-          this.content.scrollToBottom(400);
+          this.content.scrollToBottom(100);
       }
     }, 500);
   }
