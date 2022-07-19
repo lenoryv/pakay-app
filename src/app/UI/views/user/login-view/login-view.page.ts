@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { IonContent } from "@ionic/angular";
 
 @Component({
   selector: 'app-login-view',
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginViewPage implements OnInit {
 
+  @ViewChild('content') private content: IonContent;
+
   constructor() { }
+
+  setFocus(){
+    this.content.scrollToBottom(300);
+  }
 
   ngOnInit() {
   }

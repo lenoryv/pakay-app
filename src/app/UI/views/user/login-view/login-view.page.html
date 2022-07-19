@@ -1,4 +1,4 @@
-<ion-content >
+<ion-content padding #content>
   <section class="container">
     <div class="header">
       <h1 class="title" >HELLO</h1>
@@ -8,10 +8,10 @@
       <img src="/assets/images/Vector1.svg" alt="">
     </div>
     <form class="formulario">
-      <input placeholder="Email" type="text" class="inputStyle">
-      <input placeholder="Contraseña" type="password" class="inputStyle">
+      <ion-input placeholder="Email" type="text" class="inputStyle" (ionFocus)="setFocus()"></ion-input>
+      <ion-input placeholder="Contraseña" type="password" class="inputStyle"></ion-input>
       <div class="btns">
-        <div class="cont-btn1"><button class="buttonStyle">Iniciar Sesión</button></div>
+        <div class="cont-btn1"><ion-button class="buttonStyle">Iniciar Sesión</ion-button></div>
         <div class="separate">
           <span>|</span>
         </div>
