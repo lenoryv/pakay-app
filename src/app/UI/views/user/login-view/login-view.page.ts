@@ -13,10 +13,15 @@ export class LoginViewPage implements OnInit {
   constructor() { }
 
   setFocus(){
-    this.content.scrollToBottom(300);
+    setTimeout(() => {
+      if (this.content.scrollToBottom) {
+          this.content.scrollToBottom(400);
+      }
+    }, 500);
   }
 
   ngOnInit() {
+    this.setFocus();
   }
 
 }
