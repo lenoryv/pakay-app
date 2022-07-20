@@ -1,0 +1,26 @@
+<ion-content #content [scrollEvents]="true">
+  <section class="container">
+    <div class="header">
+      <h1 class="title" >HELLO</h1>
+      <span class="slogan">Bienvenido a Pakay Booking </span>
+    </div>
+    <div class="imgCont">
+      <img src="/assets/images/Vector1.svg" alt="">
+    </div>
+    <form class="formulario">
+      <ion-input placeholder="Email" type="text" class="inputStyle" (ionFocus)="setFocus()"></ion-input>
+      <ion-input placeholder="Contraseña" type="password" class="inputStyle" (ionFocus)="setFocus()"></ion-input>
+      <div class="btns">
+        <div class="cont-btn1"><ion-button class="buttonStyle">Iniciar Sesión</ion-button></div>
+        <div class="separate">
+          <span>|</span>
+        </div>
+        <button class="btn-google"><ion-icon name="logo-google"></ion-icon></button>
+      </div>
+    </form>
+    <div class="cont-btn">
+      <span class="spanStyle2">No tienes Cuenta?</span>
+      <button class="btn-Word">Registrate</button>
+    </div>
+  </section>
+</ion-content>
