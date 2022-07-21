@@ -9,7 +9,7 @@ const routes: Routes = [
     children:[
       {
         path: 'confirm-payment',
-        loadChildren: () => import('./../confirm-payment/confirm-payment.module').then( m => m.ConfirmPaymentPageModule)
+        loadChildren: () => import('../confirm-payment/confirm-payment.module').then( m => m.ConfirmPaymentPageModule)
       },
       {
         path: '',

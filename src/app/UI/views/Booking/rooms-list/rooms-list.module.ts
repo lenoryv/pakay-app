@@ -5,7 +5,6 @@ import { IonicModule } from '@ionic/angular';
 import { RoomsListPageRoutingModule } from './rooms-list-routing.module';
 import { RoomsListPage } from './rooms-list.page';
 import { SwiperModule } from 'swiper/angular';
-import { HabitacionesComponent } from '../components/habitaciones/habitaciones.component';
 
 @NgModule({
   imports: [
@@ -17,7 +16,6 @@ import { HabitacionesComponent } from '../components/habitaciones/habitaciones.c
   ],
   declarations: [
     RoomsListPage,
-    HabitacionesComponent
   ]
 })
 export class RoomsListPageModule {}
