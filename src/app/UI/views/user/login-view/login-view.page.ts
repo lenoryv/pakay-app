@@ -42,7 +42,7 @@ export class LoginViewPage implements OnInit {
 
   submit() {
 
-    let form:any = [{email:'chjuca@utpl.edu.ec', password:'1234'}]
+    let form:any = [{email:this.ionicForm.value.email, password:this.ionicForm.value.password}]
 
     this.clienMService.authClient(form).subscribe(
       result => {
