@@ -14,11 +14,11 @@ const routes: Routes = [
   },
   {
     path: 'rooms-list',
-    loadChildren: () => import('./UI/views/booking/rooms-list/rooms-list.module').then( m => m.RoomsListPageModule)
+    loadChildren: () => import('./UI/views/Booking/rooms-list/rooms-list.module').then( m => m.RoomsListPageModule)
   },
   {
     path: 'confirm-payment',
-    loadChildren: () => import('./UI/views/booking/confirm-payment/confirm-payment.module').then( m => m.ConfirmPaymentPageModule)
+    loadChildren: () => import('./UI/views/Booking/confirm-payment/confirm-payment.module').then( m => m.ConfirmPaymentPageModule)
   },
 ];
 
