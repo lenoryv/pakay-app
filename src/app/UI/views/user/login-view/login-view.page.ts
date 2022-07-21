@@ -48,11 +48,7 @@ export class LoginViewPage implements OnInit {
       result => {
         console.log(result)
       }
-    )
-    console.log(form[0])
-    console.log(this.ionicForm.value.email)
-    console.log(this.ionicForm.value.password)
-    
+    )    
   }
 
   ngOnInit() {
