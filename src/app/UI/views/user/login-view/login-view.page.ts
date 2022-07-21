@@ -34,7 +34,6 @@ export class LoginViewPage implements OnInit {
 
   setFocus(){
     this.content.scrollToBottom(300);
-    console.log("si")
   }
 
   ionViewDidEnter(){
@@ -43,16 +42,16 @@ export class LoginViewPage implements OnInit {
 
   submit() {
 
-    let form = new FormData()
-    form.append('email', this.email.value)
-    form.append('password', this.password.value)
+    let form:any = [{email:'chjuca@utpl.edu.ec', password:'1234'}]
 
     this.clienMService.authClient(form).subscribe(
       result => {
         console.log(result)
       }
     )
+    console.log(form[0])
     console.log(this.ionicForm.value.email)
+    console.log(this.ionicForm.value.password)
     
   }
 
