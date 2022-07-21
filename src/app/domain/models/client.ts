@@ -1,5 +1,5 @@
 export interface Client{
-    id?: string,
+    uid?: string,
     ci?: string,
     name?: string,
     lastname?: string,
@@ -7,3 +7,5 @@ export interface Client{
     email?: string,
     country?: string
 }
+
+export interface ClientId extends Client{id:string}
