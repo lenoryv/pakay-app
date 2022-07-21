@@ -1,0 +1,40 @@
+<ion-content>
+  <ion-header translucent>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+      <ion-title class="letter-col">Registrarse</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div class="container">
+    <div class="header">
+      <h1 class="title">Ingresar datos personales</h1>
+    </div>
+    <form (ngSubmit)="submit();" [formGroup]="registerForm" >
+      <div formGroupName="register_data" class="formulario">
+        <input formControlName="dni" class="inputStyle" name="dni" type="text" placeholder="DNI/Pasaporte">
+        <input formControlName="name" class="inputStyle" name="name" type="text" placeholder="Nombres">
+        <input formControlName="lastname" class="inputStyle" name="lastname" type="text" placeholder="Apellidos">
+        <input formControlName="email" class="inputStyle" name="email" type="email" placeholder="Correo electrónico">
+        <input formControlName="phone" class="inputStyle" name="phone" type="text" placeholder="Teléfono">
+        <input formControlName="country" class="inputStyle" name="country" type="text" placeholder="Pais">
+        <input formControlName="password" class="inputStyle" name="password" type="password" placeholder="Contraseña">
+        <input formControlName="conf_password" class="inputStyle" name="conf_password" type="password" placeholder="Confirmar contraseña">
+        <div class="check-succes">
+          <ion-checkbox color="primary"></ion-checkbox>
+          <div class="separate"></div>
+          <label for="succes">Aceptar los términos y condiciones.</label><br>
+        </div>
+      </div>
+      <div class="btns">
+        <div class="cont-btn1"><button type="submit" class="buttonStyle" (ngSubmit)="submit();">Registrarse</button></div>
+      </div>
+    </form>
+    <div class="cont-btn">
+      <span class="spanStyle2">¿Ya tienes cuenta?</span>
+      <button class="btn-Word">Iniciar sesión</button>
+    </div>
+  </div>
+
+</ion-content>

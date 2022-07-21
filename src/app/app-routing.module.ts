@@ -11,7 +11,11 @@ const routes: Routes = [
     path: '',
     redirectTo: 'login-view',
     pathMatch: 'full'
+  },  {
+    path: 'register-view',
+    loadChildren: () => import('./UI/views/user/register-view/register-view.module').then( m => m.RegisterViewPageModule)
   },
+
 ];
 
 @NgModule({
