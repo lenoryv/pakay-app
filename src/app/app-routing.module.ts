@@ -12,6 +12,14 @@ const routes: Routes = [
     redirectTo: 'login-view',
     pathMatch: 'full'
   },
+  {
+    path: 'rooms-list',
+    loadChildren: () => import('./UI/views/Booking/rooms-list/rooms-list.module').then( m => m.RoomsListPageModule)
+  },
+  {
+    path: 'confirm-payment',
+    loadChildren: () => import('./UI/views/Booking/confirm-payment/confirm-payment.module').then( m => m.ConfirmPaymentPageModule)
+  },
 ];
 
 @NgModule({
