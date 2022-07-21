@@ -1,5 +1,5 @@
 <ion-content #content [scrollEvents]="true">
-  <section class="container">
+  <section  >
     <div class="header">
       <h1 class="title" >HELLO</h1>
       <span class="slogan">Bienvenido a Pakay Booking </span>
@@ -7,11 +7,11 @@
     <div class="imgCont">
       <img src="/assets/images/Vector1.svg" alt="">
     </div>
-    <form class="formulario">
-      <ion-input placeholder="Email" type="text" class="inputStyle" (ionFocus)="setFocus()"></ion-input>
-      <ion-input placeholder="Contraseña" type="password" class="inputStyle" (ionFocus)="setFocus()"></ion-input>
+    <form class="formulario" [formGroup]="ionicForm" (ngSubmit)="submit()">
+      <ion-input placeholder="Email" type="text" class="inputStyle" formControlName="email"  (ionFocus)="setFocus()" required></ion-input>
+      <ion-input placeholder="Contraseña" type="password" class="inputStyle"  formControlName="password" (ionFocus)="setFocus() "></ion-input>
       <div class="btns">
-        <div class="cont-btn1"><ion-button class="buttonStyle">Iniciar Sesión</ion-button></div>
+        <div class="cont-btn1"><ion-button type="submit" class="buttonStyle">Iniciar Sesión</ion-button></div>
         <div class="separate">
           <span>|</span>
         </div>
@@ -22,5 +22,8 @@
       <span class="spanStyle2">No tienes Cuenta?</span>
       <button class="btn-Word">Registrate</button>
     </div>
+    <footer class="footer">
+      <span>© 2022 Todos los derechos reservados</span>
+    </footer>
   </section>
 </ion-content>

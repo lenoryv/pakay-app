@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { IonContent } from "@ionic/angular";
+import { ClientMicroNodeService } from 'src/app/infraestructure/driven-adapter/clientMicroNode.service';
 
 @Component({
   selector: 'app-login-view',
@@ -10,16 +12,45 @@ export class LoginViewPage implements OnInit {
 
   @ViewChild('content', { static: false }) content;
 
-  constructor() { }
+  ionicForm: FormGroup;
+  
+  constructor(
+    public formBuilder: FormBuilder,
+    private clienMService : ClientMicroNodeService
+  ) { 
+    this.ionicForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.minLength(2)]],
+      password: ['',[Validators.required]]
+   })
+  }
+  get email(){
+    return this.ionicForm.get('email')
+  }
+
+
+  get password(){
+    return this.ionicForm.get('password')
+  }
 
   setFocus(){
     this.content.scrollToBottom(300);
-    console.log("si")
   }
 
   ionViewDidEnter(){
     this.setFocus();
   }
+
+  submit() {
+
+    let form:any = [{email:this.ionicForm.value.email, password:this.ionicForm.value.password}]
+
+    this.clienMService.authClient(form).subscribe(
+      result => {
+        console.log(result)
+      }
+    )    
+  }
+
   ngOnInit() {
     
   }
