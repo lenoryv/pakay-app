@@ -43,18 +43,15 @@ export class LoginViewPage implements OnInit {
   }
 
   submit() {
-
-    let form:any = [{email:this.ionicForm.value.email, password:this.ionicForm.value.password}]
-
-    this.clienMService.authClient(form).subscribe(
+    console.log(typeof this.ionicForm.value)
+    this.clienMService.authClient(this.ionicForm.value).subscribe(
       result => {
         console.log(result)
-        
       }
     )    
   }
   goToRoomList(){
-    this.router.navigate(['/rooms-list'])
+    // this.router.navigate(['/rooms-list'])
   }
 
   

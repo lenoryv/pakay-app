@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Client } from "src/app/domain/models/client";
 import { ClientGateway } from "src/app/domain/models/gateway/client-gateway";
 
@@ -17,7 +17,12 @@ export class ClientMicroNodeService extends ClientGateway{
         return this.http.get<Client>(this._url)
     }
 
-    authClient(form: FormData):Observable<Client>{
-        return this.http.post<Client>(this._url,form)
+    authClient(form: any):Observable<Client>{
+        console.log(form)
+        const headers = new HttpHeaders({
+            'Content-Type': 'text/plain',
+          });
+        const requestOptions = { headers: headers };
+        return this.http.post<any>(this._url,form,requestOptions)
     }
 }
