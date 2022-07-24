@@ -8,29 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterViewPage implements OnInit {
 
-  public registerForm = new FormGroup({
-    register_data: new FormGroup({
-      dni: new FormControl(''),
-      name: new FormControl(''),
-      lastname: new FormControl(''),
-      email: new FormControl(''),
-      phone: new FormControl(''),
-      country: new FormControl(''),
-      password: new FormControl(''),
-      conf_password: new FormControl('')
-    })
-  })
 
-  constructor() { }
+  constructor(
+    public formBuilder: FormBuilder,
+    //private clienMService : ClientMicroNodeService
+  ) { }
+
+
+
+
+
+
+
+
 
   ngOnInit() {
-  }
-
-  onSubmit(): void{
-    console.log('Form ->')
-  }
-  submit(){
-    this.registerForm.setValue;
-    console.log();
   }
 }

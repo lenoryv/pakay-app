@@ -1,0 +1,196 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-title>PAKAY HOTEL</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-searchbar animated
+      (ionChange)="buscar($event)">
+  </ion-searchbar>
+</ion-header>
+
+
+
+  <!-- Scrollable Segment -->
+<ion-content>
+  <ion-tab>
+  <ion-segment>
+    <ion-segment-button value="rooms">
+      <ion-icon name="home-outline"></ion-icon>
+      <ion-label>Habitaciones</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="services">
+      <ion-icon name="Restaurant-outline"></ion-icon>
+      <ion-label>Servicios</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="contact">
+      <ion-icon name="call-outline"></ion-icon>
+      <ion-label>Contactos</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+  
+</ion-tab>
+  <ion-card>
+    <ion-card-header>
+      <swiper [autoplay]="true" [keyboard]="true" [pagination]="true" [scrollbar]="true" [zoom]="true">
+        <ng-template swiperSlide>
+          <img src="assets/images/Individual_1/individual11.jpg" tappable (click)="openPreview(img)">
+        </ng-template>
+        <ng-template swiperSlide>
+          <img src="assets/images/Individual_1/individual12.jpg" tappable (click)="openPreview(img)">
+        </ng-template>
+        <ng-template swiperSlide>
+          <img src="assets/images/Individual_1/individual13.jpg" tappable (click)="openPreview(img)">
+        </ng-template>
+      </swiper>
+      <ion-card-title>Normal, Individual 1A</ion-card-title>
+      <ion-card-subtitle>$36/noche</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      Brinda 1 cama individual, 1 armario individual y 1 baño.
+    </ion-card-content>
+  </ion-card>
+  
+  <!-- 2do CARRUSEL -->
+  <ion-card>
+    <ion-card-header>
+      <swiper [autoplay]="true" [keyboard]="true" [pagination]="true" [scrollbar]="true" [zoom]="true">
+        <ng-template swiperSlide>
+          <img src="assets/images/Individual_2/individual21.jpg" tappable (click)="openPreview(img)">
+        </ng-template>
+        <ng-template swiperSlide>
+          <img src="assets/images/Individual_2/individual22.jpg" tappable (click)="openPreview(img)">
+        </ng-template>
+      </swiper>
+      <ion-card-title>Normal, Individual 1B</ion-card-title>
+      <ion-card-subtitle>$40/noche</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      Brinda 1 cama individual, 1 armario individual, 1 baño y 1 minibar.
+    </ion-card-content>
+  </ion-card>
+
+  <!-- 3er CARRUSEL -->
+  <ion-card>
+    <ion-card-header>
+      <swiper [autoplay]="true" [keyboard]="true" [pagination]="true" [scrollbar]="true" [zoom]="true">
+        <ng-template swiperSlide>
+          <img src="assets/images/Familiar_1/familiar11.jpg" tappable (click)="openPreview(img)">
+        </ng-template>
+        <ng-template swiperSlide>
+          <img src="assets/images/Familiar_1/familiar12.jpg" tappable (click)="openPreview(img)">
+        </ng-template>
+        <ng-template swiperSlide>
+          <img src="assets/images/Familiar_1/familiar13.jpg" tappable (click)="openPreview(img)">
+        </ng-template>
+        <ng-template swiperSlide>
+          <img src="assets/images/Familiar_1/familiar14.jpg" tappable (click)="openPreview(img)">
+        </ng-template>
+      </swiper>  
+      <ion-card-title>Normal, Familiar 2A</ion-card-title>
+      <ion-card-subtitle>$70/noche</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      Brinda 1 cama de tres plazas, 1 cama individual, 1 armario individual, 1 baño y 1 minibar.
+    </ion-card-content>
+  </ion-card>
+
+    <!-- 4to CARRUSEL -->
+    <ion-card>
+      <ion-card-header>
+        <swiper [autoplay]="true" [keyboard]="true" [pagination]="true" [scrollbar]="true" [zoom]="true">
+          <ng-template swiperSlide>
+            <img src="assets/images/Familiar_2/familiar21.jpg" tappable (click)="openPreview(img)">
+          </ng-template>
+          <ng-template swiperSlide>
+            <img src="assets/images/Familiar_2/familiar22.jpg" tappable (click)="openPreview(img)">
+          </ng-template>
+        </swiper>
+        <ion-card-title>Suite, Familiar 2B</ion-card-title>
+        <ion-card-subtitle>$105/noche</ion-card-subtitle>
+      </ion-card-header>
+    
+      <ion-card-content>
+        Brinda 2 camas de tres plazas, 1 litera, 1 minibalcón, 1 televisor 64 pulg, 2 armarios individuales, 2 baños, jacuzzi y 1 minibar.
+      </ion-card-content>
+    </ion-card>
+    
+    <!-- 5to CARRUSEL -->
+    <ion-card>
+      <ion-card-header>
+        <swiper [autoplay]="true" [keyboard]="true" [pagination]="true" [scrollbar]="true" [zoom]="true">
+          <ng-template swiperSlide>
+            <img src="assets/images/Matrimonial_1/matrimonial11.jpg" tappable (click)="openPreview(img)">
+          </ng-template>
+          <ng-template swiperSlide>
+            <img src="assets/images/Matrimonial_1/matrimonial12.jpg" tappable (click)="openPreview(img)">
+          </ng-template>
+          <ng-template swiperSlide>
+            <img src="assets/images/Matrimonial_1/matrimonial13.jpg" tappable (click)="openPreview(img)">
+          </ng-template>
+          <ng-template swiperSlide>
+            <img src="assets/images/Matrimonial_1/matrimonial14.jpg" tappable (click)="openPreview(img)">
+          </ng-template>
+        </swiper>
+        <ion-card-title>Suite, Matrimonial 3A</ion-card-title>
+        <ion-card-subtitle>$80/noche</ion-card-subtitle>
+      </ion-card-header>
+    
+      <ion-card-content>
+        Brinda 1 cama de tres plazas decorada, 1 televisor 64 pulg, 1 armario individual, 1 baño, jacuzzi y 1 minibar.
+      </ion-card-content>
+    </ion-card>
+    
+    <!-- 6to CARRUSEL -->
+    <ion-card>
+      <ion-card-header>
+        <swiper [autoplay]="true" [keyboard]="true" [pagination]="true" [scrollbar]="true" [zoom]="true">
+          <ng-template swiperSlide>
+            <img src="assets/images/Matrimonial_2/matrimonial21.jpg" tappable (click)="openPreview(img)">
+          </ng-template>
+          <ng-template swiperSlide>
+            <img src="assets/images/Matrimonial_2/matrimonial22.jpg" tappable (click)="openPreview(img)">
+          </ng-template>
+          <ng-template swiperSlide>
+            <img src="assets/images/Matrimonial_2/matrimonial23.jpg" tappable (click)="openPreview(img)">
+          </ng-template>
+        </swiper>
+        <ion-card-title>Suite, Matrimonial 3B</ion-card-title>
+        <ion-card-subtitle>$90/noche</ion-card-subtitle>
+      </ion-card-header>
+    
+      <ion-card-content>
+        Brinda 1 cama de tres plazas decorada, 1 sofacama, 1 televisor 64 pulg, servicios streaming (Netflix & Disney), 1 armario individual, 1 baño, jacuzzi y 1 minibar.
+      </ion-card-content>
+    </ion-card>
+   <!-- </ion-item>
+  </ion-list> -->
+<!-- </section> -->
+
+</ion-content>
+<ion-tab>
+
+  <ion-tab-bar slot="bottom">
+    
+    <ion-tab-button tab="confirm-payment">
+      <ion-icon name="search"></ion-icon>
+      <ion-label>Search</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="confirm-payment">
+      <ion-icon name="newspaper"></ion-icon>
+      <ion-label>Booking</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="confirm-payment">
+      <ion-icon name="person"></ion-icon>
+      <ion-label>Profile</ion-label>
+    </ion-tab-button>
+
+  </ion-tab-bar>
+</ion-tab>
+<!--  -->
