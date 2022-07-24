@@ -13,6 +13,10 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'register-view',
+    loadChildren: () => import('./UI/views/user/register-view/register-view.module').then( m => m.RegisterViewPageModule)
+  },
+  {
     path: 'rooms-list',
     loadChildren: () => import('./UI/views/Booking/rooms-list/rooms-list.module').then( m => m.RoomsListPageModule)
   },

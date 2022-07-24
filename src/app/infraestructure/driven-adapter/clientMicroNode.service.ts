@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Client } from "src/app/domain/models/client";
 import { ClientGateway } from "src/app/domain/models/gateway/client-gateway";
 
@@ -8,7 +8,7 @@ import { ClientGateway } from "src/app/domain/models/gateway/client-gateway";
     providedIn:'root'
 })
 export class ClientMicroNodeService extends ClientGateway{
-    private _url ='https://us-central1-pakay-back.cloudfunctions.net/user/login';
+    private _url ='https://us-central1-pakay-back.cloudfunctions.net/user/';
     constructor(private http:HttpClient){super();}
     getAllClients(): Observable<Client[]>{
         return this.http.get<Client[]>(this._url)
@@ -17,7 +17,28 @@ export class ClientMicroNodeService extends ClientGateway{
         return this.http.get<Client>(this._url)
     }
 
-    authClient(form: FormData):Observable<Client>{
-        return this.http.post<Client>(this._url,form)
+    authClient(form: any):Observable<Client>{
+        console.log(form)
+        const headers = new HttpHeaders({
+            'Content-Type': 'text/plain',
+          });
+    
+        const requestOptions = { headers: headers };
+        return this.http.post<any>(this._url + "login",form,requestOptions)
     }
+
+    createClient(form: any):Observable<Client>{
+        console.log(form)
+        const headers = new HttpHeaders({
+            'Content-Type': 'text/plain',
+          });
+    
+        const requestOptions = { headers: headers };
+        return this.http.post<any>(this._url, form,requestOptions)
+    }
+
+    getCountry(): Observable<any> {
+        return this.http.get<any>(this._url + 'countries')
+    }
+    
 }
