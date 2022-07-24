@@ -1,0 +1,25 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button>
+                <ion-icon slot="icon-only" name="close"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>Pakay Booking</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-title>Datos de reserva</ion-title>
+    <div class="date" [ngClass]="status ? 'openDate' : ''">
+        <h6 (click)="clickEvent()">Fecha</h6>
+        <div *ngIf="status">Content to render when condition is true.
+            <div class="btn-group">
+                <div class="btn-secondary">Cancel</div>
+                <div class="btn-primary">Aceptar</div>
+            </div>
+        </div>
+    </div>
+    <igx-date-range-picker [(ngModel)]="range">
+        <label igxLabel>Flight dates</label>
+    </igx-date-range-picker>
+</ion-content>
