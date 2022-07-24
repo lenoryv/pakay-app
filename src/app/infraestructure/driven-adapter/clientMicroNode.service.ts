@@ -8,7 +8,7 @@ import { ClientGateway } from "src/app/domain/models/gateway/client-gateway";
     providedIn:'root'
 })
 export class ClientMicroNodeService extends ClientGateway{
-    private _url ='http://localhost:5001/pakay-back/us-central1/user/';
+    private _url ='https://us-central1-pakay-back.cloudfunctions.net/user/';
     constructor(private http:HttpClient){super();}
     getAllClients(): Observable<Client[]>{
         return this.http.get<Client[]>(this._url)
@@ -36,4 +36,9 @@ export class ClientMicroNodeService extends ClientGateway{
         const requestOptions = { headers: headers };
         return this.http.post<any>(this._url, form,requestOptions)
     }
+
+    getCountry(): Observable<any> {
+        return this.http.get<any>(this._url + 'countries')
+    }
+    
 }
