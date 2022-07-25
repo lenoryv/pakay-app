@@ -1,10 +1,69 @@
-.date {
+.header {
+    display: flex;
+    margin: 24px;
+    width: auto;
+    justify-content: space-between;
+    align-items: center;
+    height: 28px;
+    flex-direction: row;
+    justify-items: space;
+    /* Headline 6 */
+    font-style: normal;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 28px;
+    /* identical to box height, or 162% */
+    letter-spacing: 0.15px;
+    /* Black */
+    color: #232323;
+}
+
+.btn-header {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+}
+
+.input {
+    margin: 24px;
+    font-size: 10px;
+    width: 100%;
+    color: #232323;
+}
+
+::ng-deep .mat-datepicker-content {
+    margin: 18px;
+}
+
+::ng-deep .mat-calendar {
+    width: auto;
+}
+
+.text-body {
+    margin-left: 24px;
+}
+
+h4 {
+    font-size: 33px;
+    margin-bottom: 0;
+    width: auto;
+}
+
+h6 {
+    margin-bottom: 0;
+    font-size: 17px;
+    width: auto;
+}
+
+.option {
     /* Auto layout */
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    justify-content: space-between;
+    align-items: center;
     padding: 16px;
-    gap: 24px;
     width: auto;
     height: 60px;
     margin: 24px;

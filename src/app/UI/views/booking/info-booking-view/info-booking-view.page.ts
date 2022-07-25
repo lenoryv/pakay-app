@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DateRange } from 'igniteui-angular';
+import {FormGroup, FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-info-booking-view',
@@ -8,7 +8,13 @@ import { DateRange } from 'igniteui-angular';
 })
 export class InfoBookingViewPage implements OnInit {
 
+  range = new FormGroup({
+    start: new FormControl<Date | null>(null),
+    end: new FormControl<Date | null>(null),
+  });
+
   public size: number = 0;
+  showActive: boolean = false;
 
   constructor() { }
 
@@ -16,8 +22,10 @@ export class InfoBookingViewPage implements OnInit {
   clickEvent(){
       this.status = !this.status;       
   }
-  
-  public range: DateRange = { start: new Date(), end: new Date(new Date().setDate(new Date().getDate() + 5)) };
+
+  toggleSelect() {
+    this.showActive = !this.showActive;
+  }
 
   ngOnInit() {
   }

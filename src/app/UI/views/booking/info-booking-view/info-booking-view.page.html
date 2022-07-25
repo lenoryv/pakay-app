@@ -1,25 +1,38 @@
-<ion-header>
-    <ion-toolbar>
-        <ion-buttons slot="start">
-            <ion-button>
-                <ion-icon slot="icon-only" name="close"></ion-icon>
-            </ion-button>
-        </ion-buttons>
-        <ion-title>Pakay Booking</ion-title>
-    </ion-toolbar>
-</ion-header>
 <ion-content>
-    <ion-title>Datos de reserva</ion-title>
-    <div class="date" [ngClass]="status ? 'openDate' : ''">
-        <h6 (click)="clickEvent()">Fecha</h6>
-        <div *ngIf="status">Content to render when condition is true.
-            <div class="btn-group">
-                <div class="btn-secondary">Cancel</div>
-                <div class="btn-primary">Aceptar</div>
-            </div>
+    <div class="header">
+        <h6>Hotel's Name</h6>
+        <div class="btn-header" [routerLink]="['/rooms-list']">
+            <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="close"></mat-icon>
         </div>
     </div>
-    <igx-date-range-picker [(ngModel)]="range">
-        <label igxLabel>Flight dates</label>
-    </igx-date-range-picker>
+    <div class="text-body">
+        <h4>Datos de reserva</h4>
+    </div>
+    <div class="option">
+
+        <h6>Fecha</h6>
+        <mat-date-range-input class="input" [rangePicker]="picker">
+            <input readonly matStartDate placeholder="Entrada">
+            <input readonly matEndDate placeholder="Salida">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matSuffix [for]="picker">
+        </mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+    </div>
+    <div (click)="toggleSelect()" class="option">
+        <h6>Fecha</h6>
+    </div>
+    <div class="openDate" role="region" [style.display]="showActive? '' : 'none'">Content to render when condition is true.
+        <div class="btn-group">
+            <div (click)="clickEvent()" class="btn-secondary">Cancel</div>
+            <div class="btn-primary">Aceptar</div>
+        </div>
+    </div>
+    <div class="option">
+        <h6>Sección</h6>
+    </div>
+    <div class="option">
+        <h6>Tipo</h6>
+    </div>
+
 </ion-content>
