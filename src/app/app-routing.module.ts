@@ -24,6 +24,10 @@ const routes: Routes = [
     path: 'confirm-payment',
     loadChildren: () => import('./UI/views/Booking/confirm-payment/confirm-payment.module').then( m => m.ConfirmPaymentPageModule)
   },
+  {
+    path: 'backup-interface',
+    loadChildren: () => import('./UI/views/Booking/backup-interface/backup-interface.module').then( m => m.BackupInterfacePageModule)
+  },
 ]
 @NgModule({
   imports: [
