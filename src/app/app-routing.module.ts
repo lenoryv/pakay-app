@@ -31,6 +31,10 @@ const routes: Routes = [
     path: 'info-booking-view',
     loadChildren: () => import('./UI/views/Booking/info-booking-view/info-booking-view.module').then( m => m.InfoBookingViewPageModule)
   },
+  {
+    path: 'booking-view',
+    loadChildren: () => import('./UI/views/Booking/booking-view/booking-view.module').then( m => m.BookingViewPageModule)
+  },
 
 ]
 @NgModule({
