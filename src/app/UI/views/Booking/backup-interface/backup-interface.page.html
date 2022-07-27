@@ -1,0 +1,92 @@
+<ion-content class="contMain">
+  <section class="header">
+    <div class="backbtn" (click)="goBack()">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </div>
+    <div class="title">
+      Confirmar y Pagar
+    </div>
+  </section>
+  <section class="container1">
+    <div class="images">
+      <img src="assets/images/Individual_1/individual11.jpg" alt="">
+    </div>
+    <div>
+      <h3 class="titleImg">FAMILIAR</h3>
+      <p class="infoImg">Habitacion doble con vsita a la playa</p>
+    </div>
+  </section>
+  <div class="separator"></div>
+  <section class="container2">
+    <h3 class="titleCont2">Tu reserva</h3>
+    <section class="editCont">
+      <div class="edit">
+        <span class="dateEdit">Fechas</span>
+        <p class="infoEdit">3-4 de jul. de 2022</p>
+      </div>
+      <div class="editBtn">  
+        <ion-button class="buttonStyle">Editar</ion-button>
+      </div>
+    </section>
+    <section class="editCont">
+      <div class="edit"> 
+        <span class="dateEdit">Huéspedes</span>
+        <p class="infoEdit">2 huespedes</p>
+      </div>
+      <div class="editBtn">
+        <ion-button class="buttonStyle">Editar</ion-button>
+      </div>
+    </section>
+  </section>
+  <div class="separator"></div>
+  <section class="container3">
+    <h3 class="titleCont3">Detalles de Precio</h3>
+    <div class="price">
+      <p class="infoPrice">$36.00 x 3 noches</p>
+      <p class="infoPrice2">$108.00</p>
+    </div>
+    <div class="price">
+      <p class="infoPrice">IVA incluido (12%)</p>
+      <p class="infoPrice2">$12.96</p>
+    </div>
+    <div class="price">
+      <p class="infoPrice3">Total en USD</p>
+      <p class="infoPrice4">$120.96</p>
+    </div>
+  </section>
+  <div class="separator"></div>
+  <section class="container4">
+    <h3 class="titleCont2">Elige cómo quieres pagar</h3>
+    <button id="open-custom-dialog" class="selectPayment">Plataforma de pago</button>
+    <ion-modal class="modalCont" id="example-modal" #modal trigger="open-custom-dialog">
+      <ng-template>
+        <div class="wrapper">
+          <ion-list lines="none">
+            <ion-list>
+              <ion-radio-group value="payment">
+                <ion-list-header>
+                  <ion-label class="modalTitle">Pagar con</ion-label>
+                </ion-list-header>
+                <ion-item>
+                  <ion-label class="modalLabel">Paypal</ion-label>
+                  <ion-radio slot="end" value="paypal"></ion-radio>
+                </ion-item>  
+                <div class="separator1"></div>          
+                <ion-item>
+                  <ion-label class="modalLabel">TransferWise</ion-label>
+                  <ion-radio slot="end" value="TransferWise"></ion-radio>
+                </ion-item>      
+                <div class="separator1"></div>       
+              </ion-radio-group>
+            </ion-list>
+           
+          </ion-list>
+          <div class="btnModal">
+            <ion-button class="buttonStyle" (click)="modal.dismiss()">Cancelar</ion-button>
+            <ion-button class="buttonStyle2" (click)="modal.dismiss()" (click)="goPayment()">Continuar</ion-button>
+          </div>
+        </div>
+      </ng-template>
+    </ion-modal>
+  </section>
+</ion-content>
