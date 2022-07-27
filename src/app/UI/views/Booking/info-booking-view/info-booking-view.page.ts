@@ -1,6 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import {FormGroup, FormControl} from '@angular/forms';
-import {BookingService} from '../../../../booking.service';
+import {BookingService} from '../../../../infraestructure/driven-adapter/booking.service';
 
 @Component({
   selector: 'app-info-booking-view',
@@ -17,7 +17,6 @@ export class InfoBookingViewPage implements OnInit {
 
   book: any = this.bookingService.getBooking();
 
-  selected: Date | string;
   showActive: boolean = false;
 
   range = new FormGroup({

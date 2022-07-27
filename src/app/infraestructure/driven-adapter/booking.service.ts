@@ -6,16 +6,17 @@ import { Injectable } from '@angular/core';
 export class BookingService {
 
   dataFilter: any = [{
-    start: 27072022,
-    end: 27072022,
-    numberGuest: 2
+    dateIn: new Date(),
+    dateOut: new Date(),
+    numberGuests: 2
   }]
 
   booking: any = [{
-    start: 28072022,
-    end: 3082022,
-    numberGuest: 2,
-    room: 'room-1'
+    dateIn: new Date(),
+    dateOut: new Date(),
+    numberGuests: 2,
+    idRoom: 'room-1',
+    price: 20
   }]
 
   constructor() { }
