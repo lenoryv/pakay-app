@@ -1,6 +1,6 @@
 <ion-content class="contMain">
   <section class="header">
-    <div class="backbtn">
+    <div class="backbtn" (click)="goBack()">
       <ion-icon name="arrow-back-outline"></ion-icon>
     </div>
     <div class="title">
@@ -57,8 +57,36 @@
   <div class="separator"></div>
   <section class="container4">
     <h3 class="titleCont2">Elige cómo quieres pagar</h3>
-    <div class="selectPayment">
-      <span>Plataforma de pago</span>
-    </div>
+    <button id="open-custom-dialog" class="selectPayment">Plataforma de pago</button>
+    <ion-modal class="modalCont" id="example-modal" #modal trigger="open-custom-dialog">
+      <ng-template>
+        <div class="wrapper">
+          <ion-list lines="none">
+            <ion-list>
+              <ion-radio-group value="payment">
+                <ion-list-header>
+                  <ion-label class="modalTitle">Pagar con</ion-label>
+                </ion-list-header>
+                <ion-item>
+                  <ion-label class="modalLabel">Paypal</ion-label>
+                  <ion-radio slot="end" value="paypal"></ion-radio>
+                </ion-item>  
+                <div class="separator1"></div>          
+                <ion-item>
+                  <ion-label class="modalLabel">TransferWise</ion-label>
+                  <ion-radio slot="end" value="TransferWise"></ion-radio>
+                </ion-item>      
+                <div class="separator1"></div>       
+              </ion-radio-group>
+            </ion-list>
+           
+          </ion-list>
+          <div class="btnModal">
+            <ion-button class="buttonStyle" (click)="modal.dismiss()">Cancelar</ion-button>
+            <ion-button class="buttonStyle2" (click)="modal.dismiss()" (click)="goPayment()">Continuar</ion-button>
+          </div>
+        </div>
+      </ng-template>
+    </ion-modal>
   </section>
 </ion-content>
