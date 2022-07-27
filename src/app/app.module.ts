@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ClientGateway } from './domain/models/gateway/client-gateway';
 import { ClientMicroNodeService } from './infraestructure/driven-adapter/clientMicroNode.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,6 +21,7 @@ import { ClientMicroNodeService } from './infraestructure/driven-adapter/clientM
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },

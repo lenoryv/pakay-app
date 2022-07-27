@@ -27,7 +27,11 @@ const routes: Routes = [
   {
     path: 'backup-interface',
     loadChildren: () => import('./UI/views/Booking/backup-interface/backup-interface.module').then( m => m.BackupInterfacePageModule)
+  },  {
+    path: 'info-booking-view',
+    loadChildren: () => import('./UI/views/Booking/info-booking-view/info-booking-view.module').then( m => m.InfoBookingViewPageModule)
   },
+
 ]
 @NgModule({
   imports: [
