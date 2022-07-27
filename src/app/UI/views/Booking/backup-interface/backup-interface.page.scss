@@ -27,7 +27,8 @@
 }
 
 .images {
-    width: 70%;
+    display: flex;
+    width: 55%;
     height: auto;
     margin-right: 3vw;
 }
@@ -37,6 +38,10 @@
     border-radius: 10px;
 }
 
+.contInfo{
+    display: flex;
+    width: 35%;
+}
 .titleImg {
     margin-top: 0;
     font-size: 0.625em;
@@ -74,6 +79,7 @@
     display: flex;
     flex-direction: column;
     width: 50%;
+    min-height: 4vh;
 }
 
 .dateEdit {

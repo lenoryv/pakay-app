@@ -11,9 +11,9 @@
     <div class="images">
       <img src="assets/images/Individual_1/individual11.jpg" alt="">
     </div>
-    <div>
-      <h3 class="titleImg">FAMILIAR</h3>
-      <p class="infoImg">Habitacion doble con vsita a la playa</p>
+    <div class="contInfo">
+      <h3 class="titleImg">{{booking?.room.type}}</h3>
+      <p class="infoImg">{{booking?.room.description}}</p>
     </div>
   </section>
   <div class="separator"></div>
@@ -22,36 +22,36 @@
     <section class="editCont">
       <div class="edit">
         <span class="dateEdit">Fechas</span>
-        <p class="infoEdit">3-4 de jul. de 2022</p>
+        <p *ngIf="booking" class="infoEdit">{{booking?.dateIn|date:"dd"}}-{{booking?.dateOut|date:"dd"}} de {{booking?.dateOut|date:"MMM"}} de {{booking?.dateOut|date:"yyyy"}}</p>
       </div>
-      <div class="editBtn">  
+      <!-- <div class="editBtn">  
         <ion-button class="buttonStyle">Editar</ion-button>
-      </div>
+      </div> -->
     </section>
     <section class="editCont">
       <div class="edit"> 
         <span class="dateEdit">Huéspedes</span>
-        <p class="infoEdit">2 huespedes</p>
+        <p class="infoEdit">{{booking?.numberGuest}}</p>
       </div>
-      <div class="editBtn">
+      <!-- <div class="editBtn">
         <ion-button class="buttonStyle">Editar</ion-button>
-      </div>
+      </div> -->
     </section>
   </section>
   <div class="separator"></div>
   <section class="container3">
     <h3 class="titleCont3">Detalles de Precio</h3>
     <div class="price">
-      <p class="infoPrice">$36.00 x 3 noches</p>
-      <p class="infoPrice2">$108.00</p>
+      <p class="infoPrice">{{booking?.room.price}} x 3 noches</p>
+      <p class="infoPrice2">{{tmpAux}}</p>
     </div>
     <div class="price">
       <p class="infoPrice">IVA incluido (12%)</p>
-      <p class="infoPrice2">$12.96</p>
+      <p class="infoPrice2">{{iva}}</p>
     </div>
     <div class="price">
       <p class="infoPrice3">Total en USD</p>
-      <p class="infoPrice4">$120.96</p>
+      <p class="infoPrice4">{{booking?.price}}</p>
     </div>
   </section>
   <div class="separator"></div>
