@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {FormGroup, FormControl} from '@angular/forms';
-import { DatePipe } from '@angular/common';
-import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+import {BookingService} from '../../../../booking.service';
 
 @Component({
   selector: 'app-info-booking-view',
@@ -10,28 +9,49 @@ import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 })
 export class InfoBookingViewPage implements OnInit {
 
-  pipe = new DatePipe('en-US');
+  status: boolean = false;
+  btnDisabled: boolean = true;
+  guests: number = 0;
+  placeholderActive = false;
+  adult:number = 0;
+
+  book: any = this.bookingService.getBooking();
+
+  selected: Date | string;
+  showActive: boolean = false;
 
   range = new FormGroup({
     start: new FormControl<Date | null>(null),
     end: new FormControl<Date | null>(null),
   });
 
-  selected: Date | string;
-  showActive: boolean = false;
 
-  events: string[] = [];
+  constructor(
+    public bookingService: BookingService
+  ) { 
+    console.log('Huespedes: ', this.book);
 
-  addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
-    this.events.push(`${type}: ${event.value}`);
   }
 
-  constructor() { 
+  updateGuests(){
+    this.guests = this.adult;
   }
 
-  status: boolean = false;
-  clickEvent(){
-      this.status = !this.status;       
+  //Count
+  more(){
+    this.adult +=1;
+    this.btnDisabled = false;
+  }
+
+  less(){
+    if(this.adult > 0){
+      this.adult -=1;
+      if(this.adult==0){
+        this.btnDisabled = true;
+      }
+    }else{
+      this.btnDisabled = true;
+    }
   }
 
   ngOnInit() {

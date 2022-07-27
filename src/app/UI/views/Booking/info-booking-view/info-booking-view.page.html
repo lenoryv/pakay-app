@@ -25,7 +25,7 @@
     <ion-accordion-group class="accordion-group">
         <ion-accordion value="second" class="accordion">
             <ion-item slot="header" class="ion-no-padding" lines="none">
-                <ion-label class="ion-label">Huéspedes</ion-label>
+                <ion-label class="ion-label">Huéspedes {{guests}}</ion-label>
             </ion-item>
             <div slot="content" class="group-opt">
                 <div class="option">
@@ -38,11 +38,11 @@
                         </div>
                     </div>
                     <div class="quantity">
-                        <ion-button [disabled]="true" fill="outline" slot="icon-only">
+                        <ion-button (click)="less()" (click)="updateGuests()" [disabled]="btnDisabled" fill="outline" slot="icon-only">
                             <ion-icon name="remove-outline"></ion-icon>
                         </ion-button>
-                        <div>0</div>
-                        <ion-button fill="outline" slot="icon-only">
+                        <div>{{adult}}</div>
+                        <ion-button (click)="more()" (click)="updateGuests()" fill="outline" slot="icon-only">
                             <ion-icon name="add-outline"></ion-icon>
                         </ion-button>
                     </div>
