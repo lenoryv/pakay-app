@@ -1,0 +1,111 @@
+<ion-content>
+    <div class="header">
+        <h6>Hotel's Name</h6>
+        <div class="btn-header" [routerLink]="['/rooms-list']">
+            <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="close"></mat-icon>
+        </div>
+    </div>
+    <div class="text-body">
+        <h4>Datos de reserva</h4>
+    </div>
+    <div class="option-date" (click)="picker.open()">
+        <h6>Fecha</h6>
+        <mat-date-range-input class="range" [formGroup]="range" [rangePicker]="picker">
+            <input class="input" readonly formControlName="start" matStartDate placeholder="MM/DD/YYYY">
+            <input class="input" readonly formControlName="end" matEndDate placeholder="MM/DD/YYYY">
+        </mat-date-range-input>
+        <mat-date-range-picker #picker>
+            <mat-date-range-picker-actions>
+                <button class="btn-secondary" mat-button matDateRangePickerCancel>Cancel</button>
+                <button class="btn-primary" mat-raised-button matDateRangePickerApply>Guardar</button>
+            </mat-date-range-picker-actions>
+        </mat-date-range-picker>
+    </div>
+
+    <ion-accordion-group class="accordion-group">
+        <ion-accordion value="second" class="accordion">
+            <ion-item slot="header" class="ion-no-padding" lines="none">
+                <ion-label class="ion-label">Huéspedes</ion-label>
+            </ion-item>
+            <div slot="content" class="group-opt">
+                <div class="option">
+                    <div class="description">
+                        <div class="body-2">
+                            Adultos
+                        </div>
+                        <div class="caption">
+                            Mayores de 13 años
+                        </div>
+                    </div>
+                    <div class="quantity">
+                        <ion-button [disabled]="true" fill="outline" slot="icon-only">
+                            <ion-icon name="remove-outline"></ion-icon>
+                        </ion-button>
+                        <div>0</div>
+                        <ion-button fill="outline" slot="icon-only">
+                            <ion-icon name="add-outline"></ion-icon>
+                        </ion-button>
+                    </div>
+                </div>
+                <div class="option">
+                    <div class="description">
+                        <div class="body-2">
+                            Niños
+                        </div>
+                        <div class="caption">
+                            De 2 a 12 años
+                        </div>
+                    </div>
+                    <div class="quantity">
+                        <ion-button [disabled]="true" fill="outline" slot="icon-only">
+                            <ion-icon name="remove-outline"></ion-icon>
+                        </ion-button>
+                        <div>0</div>
+                        <ion-button fill="outline" slot="icon-only">
+                            <ion-icon name="add-outline"></ion-icon>
+                        </ion-button>
+                    </div>
+                </div>
+                <div class="option">
+                    <div class="description">
+                        <div class="body-2">
+                            Bebés
+                        </div>
+                        <div class="caption">
+                            Menores de 2 años
+                        </div>
+                    </div>
+                    <div class="quantity">
+                        <ion-button [disabled]="true" fill="outline" slot="icon-only">
+                            <ion-icon name="remove-outline"></ion-icon>
+                        </ion-button>
+                        <div>0</div>
+                        <ion-button fill="outline" slot="icon-only">
+                            <ion-icon name="add-outline"></ion-icon>
+                        </ion-button>
+                    </div>
+                </div>
+            </div>
+        </ion-accordion>
+        <ion-accordion value="third" class="accordion" disabled="true">
+            <ion-item slot="header" class="ion-no-padding" lines="none">
+                <ion-label class="ion-label">Sección (Disabled)</ion-label>
+            </ion-item>
+            <div slot="content" class="group-opt">
+            </div>
+        </ion-accordion>
+        <ion-accordion value="fourth" class="accordion" disabled="true">
+            <ion-item slot="header" class="ion-no-padding" lines="none">
+                <ion-label class="ion-label">Tipo (Disabled)</ion-label>
+            </ion-item>
+            <div slot="content" class="group-opt">
+            </div>
+        </ion-accordion>
+    </ion-accordion-group>
+
+    <div class="footer">
+
+        <ion-button class="ion-btn-primary" fill="outline" style="text-transform:none">Borrar</ion-button>
+        <ion-button class="ion-btn-secondary" fill="outline" style="text-transform:none">Buscar</ion-button>
+    </div>
+</ion-content>
