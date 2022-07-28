@@ -45,17 +45,25 @@ export class LoginViewPage implements OnInit {
   }
 
   submit() {
+    
     console.log(typeof this.ionicForm.value)
     this.clienMService.authClient(this.ionicForm.value).subscribe(
-      result => {
-        localStorage.setItem('user',result.user.id)
-        console.log(result)
+      response => {
+        if(response.ok){
+          localStorage.setItem('user',response.user.id)
+          console.log(response)
+          this.goToRoomList()
+        }else{
+          console.log('contraseña Incorrecta')
+        }
+       
       }
     )    
   }
 
+
   goToRoomList(){
-    // this.router.navigate(['/rooms-list'])
+    this.router.navigate(['/rooms-list'])
   }
 
   goToRegisterView(){
