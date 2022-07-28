@@ -17,7 +17,7 @@
         <mat-date-range-picker #picker>
             <mat-date-range-picker-actions>
                 <button class="btn-secondary" mat-button matDateRangePickerCancel>Cancel</button>
-                <button class="btn-primary" mat-raised-button matDateRangePickerApply>Guardar</button>
+                <button (click)="updateFilter()" class="btn-primary" mat-raised-button matDateRangePickerApply>Guardar</button>
             </mat-date-range-picker-actions>
         </mat-date-range-picker>
     </div>
@@ -25,7 +25,7 @@
     <ion-accordion-group class="accordion-group">
         <ion-accordion value="second" class="accordion">
             <ion-item slot="header" class="ion-no-padding" lines="none">
-                <ion-label class="ion-label">Huéspedes {{guests}}</ion-label>
+                <ion-label class="ion-label">Huéspedes {{numberGuests}}</ion-label>
             </ion-item>
             <div slot="content" class="group-opt">
                 <div class="option">
@@ -37,12 +37,12 @@
                             Mayores de 13 años
                         </div>
                     </div>
-                    <div class="quantity">
-                        <ion-button (click)="less()" (click)="updateGuests()" [disabled]="btnDisabled" fill="outline" slot="icon-only">
+                    <div class="quantity" (click)="updateFilter()">
+                        <ion-button (click)="less(1)" (click)="updateGuests()" [disabled]="btnDisabledA" fill="outline" slot="icon-only">
                             <ion-icon name="remove-outline"></ion-icon>
                         </ion-button>
-                        <div>{{adult}}</div>
-                        <ion-button (click)="more()" (click)="updateGuests()" fill="outline" slot="icon-only">
+                        <div>{{adults}}</div>
+                        <ion-button (click)="more(1)" (click)="updateGuests()" fill="outline" slot="icon-only">
                             <ion-icon name="add-outline"></ion-icon>
                         </ion-button>
                     </div>
@@ -56,12 +56,12 @@
                             De 2 a 12 años
                         </div>
                     </div>
-                    <div class="quantity">
-                        <ion-button [disabled]="true" fill="outline" slot="icon-only">
+                    <div class="quantity" (click)="updateFilter()">
+                        <ion-button (click)="less(2)" (click)="updateGuests()" [disabled]="btnDisabledC" fill="outline" slot="icon-only">
                             <ion-icon name="remove-outline"></ion-icon>
                         </ion-button>
-                        <div>0</div>
-                        <ion-button fill="outline" slot="icon-only">
+                        <div>{{children}}</div>
+                        <ion-button (click)="more(2)" (click)="updateGuests()" fill="outline" slot="icon-only">
                             <ion-icon name="add-outline"></ion-icon>
                         </ion-button>
                     </div>
@@ -75,12 +75,12 @@
                             Menores de 2 años
                         </div>
                     </div>
-                    <div class="quantity">
-                        <ion-button [disabled]="true" fill="outline" slot="icon-only">
+                    <div class="quantity" (click)="updateFilter()">
+                        <ion-button (click)="less(3)" (click)="updateGuests()" [disabled]="btnDisabledB" fill="outline" slot="icon-only">
                             <ion-icon name="remove-outline"></ion-icon>
                         </ion-button>
-                        <div>0</div>
-                        <ion-button fill="outline" slot="icon-only">
+                        <div>{{babies}}</div>
+                        <ion-button (click)="more(3)" (click)="updateGuests()" fill="outline" slot="icon-only">
                             <ion-icon name="add-outline"></ion-icon>
                         </ion-button>
                     </div>
