@@ -15,9 +15,10 @@ import { SwiperComponent } from 'swiper/angular';
 export class RoomsListPage implements OnInit {
   @ViewChild('swiper') swiper: SwiperComponent;
   @ViewChild('content', {static: false}) content;
-  
+  rooms!:any
+  roomslist:any[]=[]
   constructor(
-    private roomsMService : RoomsService,
+    public roomsMService : RoomsService,
     private router : Router
   ) { }
 
@@ -33,29 +34,16 @@ export class RoomsListPage implements OnInit {
     console.log("img")
   }
 
-  setRooms(){
-    //this.roomsMService
-  }
-
-  getARooms() {
-    this.roomsMService.getAllRooms().subscribe(
-      result => {
-        console.log(result[0].photos[1])
-      }
-    ) 
-  }
-  data = Object.values(this.getARooms);  
-
-  goToViewBooking(){
-    //this.router.navigate(['/booking-view'])
-  }
-
   ngOnInit() {
     if (this.swiper)
     this.swiper.updateSwiper({});
-    this.goToViewBooking();
-    this.getARooms();
-    console.log(this.getARooms());
+    this.roomsMService.getAllRooms().subscribe(
+      result => {
+        this.rooms = result[0]
+        this.roomslist = result
+        console.log(this.rooms)
+      }
+    )
   }
 
   
