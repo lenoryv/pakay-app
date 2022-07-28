@@ -3,13 +3,14 @@ import { Data, Router } from '@angular/router';
 import { BookingService } from 'src/app/infraestructure/driven-adapter/booking.service';
 import { BookingMicroNodeService } from 'src/app/infraestructure/driven-adapter/bookingMicroNode.service';
 import { RoomsService } from 'src/app/infraestructure/driven-adapter/rooms.service';
+import * as moment from 'moment';
 
 export interface Booking{
   id: string;
   dateIn: Date;
   dateOut: Date;
   price: number;
-  numberGuest: number;
+  numberGuests: number;
   numberRooms: number;
   idRoom: string;
   idClient: string;
@@ -41,11 +42,16 @@ export class BackupInterfacePage implements OnInit {
   room!: Rooms;
   auxBooking!: Booking;
 
+
+  subprice = 0;
   iva = 0;
-  tmpAux = 0;
+  tmpPrice = 0;
 
   auxdateIn = new Date(2022,6,24);
   auxdateOn = new Date();
+
+
+  day = 0;
 
   constructor(
     private router: Router,
@@ -54,20 +60,37 @@ export class BackupInterfacePage implements OnInit {
     private bookingMicroService: BookingMicroNodeService,
   ) { }
   
-  calculatePrice(){
-    
-  }   
-
+  fecthBooking(){
+    this.auxBooking = this.bookingService.getBooking()[0]
+    this.fecthRoom(this.auxBooking)
+  }
 
   fecthRoom(booking:Booking){
     this.roomsService.getRoomById(booking.idRoom).subscribe(
       room =>{
         let aux: AuxBooking = {...booking,room:room}
+        console.log(room);   
         this.booking = aux
+        this.calculatePrice()
       }
     )
   }
 
+  calculateDays(){
+    let star = moment(this.booking.dateIn)
+    let end = moment(this.booking.dateOut)
+    this.day = end.diff(star,'day')
+    console.log(this.day)
+  }
+  
+  calculatePrice(){
+    this.calculateDays()
+    this.tmpPrice = this.booking.room.price * this.day; 
+    this.iva = (this.tmpPrice * 0.12);
+    this.booking.price = this.tmpPrice + this.iva;
+    console.log(this.booking.room)
+    return  this.booking.price
+  } 
 
   summit(){
     this.bookingMicroService.postNewBooking().subscribe(
@@ -88,6 +111,7 @@ export class BackupInterfacePage implements OnInit {
   }
 
   ngOnInit() {
+    this.fecthBooking()    
   }
 
 }

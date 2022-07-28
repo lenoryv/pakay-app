@@ -9,11 +9,11 @@
   </section>
   <section class="container1">
     <div class="images">
-      <img src="assets/images/Individual_1/individual11.jpg" alt="">
+      <img [src]="booking?.room?.photos" alt="">
     </div>
     <div class="contInfo">
-      <h3 class="titleImg">{{booking?.room.type}}</h3>
-      <p class="infoImg">{{booking?.room.description}}</p>
+      <h3 class="titleImg">{{booking?.room?.type}}</h3>
+      <p class="infoImg">{{booking?.room?.description}}</p>
     </div>
   </section>
   <div class="separator"></div>
@@ -22,7 +22,7 @@
     <section class="editCont">
       <div class="edit">
         <span class="dateEdit">Fechas</span>
-        <p *ngIf="booking" class="infoEdit">{{booking?.dateIn|date:"dd"}}-{{booking?.dateOut|date:"dd"}} de {{booking?.dateOut|date:"MMM"}} de {{booking?.dateOut|date:"yyyy"}}</p>
+        <p *ngIf="booking" class="infoEdit">{{booking!.dateIn|date:"dd"}}-{{booking!.dateOut|date:"dd"}} de {{booking!.dateOut|date:"MMM"}} de {{booking!.dateOut|date:"yyyy"}}</p>
       </div>
       <!-- <div class="editBtn">  
         <ion-button class="buttonStyle">Editar</ion-button>
@@ -31,7 +31,7 @@
     <section class="editCont">
       <div class="edit"> 
         <span class="dateEdit">Huéspedes</span>
-        <p class="infoEdit">{{booking?.numberGuest}}</p>
+        <p class="infoEdit">{{booking?.numberGuests}} Huéspedes</p>
       </div>
       <!-- <div class="editBtn">
         <ion-button class="buttonStyle">Editar</ion-button>
@@ -42,8 +42,8 @@
   <section class="container3">
     <h3 class="titleCont3">Detalles de Precio</h3>
     <div class="price">
-      <p class="infoPrice">{{booking?.room.price}} x 3 noches</p>
-      <p class="infoPrice2">{{tmpAux}}</p>
+      <p class="infoPrice">{{booking?.room?.price}} x {{day}} noches</p>
+      <p class="infoPrice2">{{tmpPrice}}</p>
     </div>
     <div class="price">
       <p class="infoPrice">IVA incluido (12%)</p>

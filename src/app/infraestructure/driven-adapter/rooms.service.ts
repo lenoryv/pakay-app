@@ -20,7 +20,11 @@ export class RoomsService extends RoomsGateway{
     }
 
     getRoomById(idRoom: string): Observable<Rooms> {
-      return this.http.get<Rooms>(this._url+`/`+idRoom)
+      const headers = new HttpHeaders({
+        'Content-Type': 'text/plain',
+      });
+      const requestOptions = { headers: headers };
+      return this.http.get<Rooms>(this._url+"/"+idRoom,requestOptions)
     }
 
     getEnableRooms(): Observable<Rooms[]> {
@@ -31,13 +35,6 @@ export class RoomsService extends RoomsGateway{
       return this.http.get<Rooms[]>(this._url+"/available",requestOptions)
     }
 
-    getRoomById(idRoom: string): Observable<Rooms> {
-      const headers = new HttpHeaders({
-        'Content-Type': 'text/plain',
-      });
-      const requestOptions = { headers: headers };
-      return this.http.get<Rooms>(this._url+'/room-1',requestOptions)
-    }
     // getPhotosRooms(): Observable<Rooms[]> {
     //   const headers = new HttpHeaders({
     //     'Content-Type': 'text/plain',
