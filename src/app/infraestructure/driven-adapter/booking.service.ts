@@ -27,6 +27,18 @@ export class BookingService {
     this.dataFilter[0].dateOut = dateOut;
   }
 
+  setIdRoom(idRoom:string) {
+    this.booking[0].idRoom = idRoom;
+  }
+
+  setBooking(numberGuests:number, dateIn:Date, dateOut:Date, idRoom:string, price:number){
+    this.booking[0].dateIn = dateIn;
+    this.booking[0].dateOut = dateOut;
+    this.booking[0].numberGuests = numberGuests;
+    this.booking[0].idRoom = idRoom;
+    this.booking[0].price = price;
+  }
+
   addBooking (booking:any){
     this.booking.push(booking);
   }
