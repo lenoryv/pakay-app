@@ -1,13 +1,13 @@
 <ion-content>
     <swiper class="swiper" pager="true" [initialSlide]="0" [slidesPerView]="1" [autoplay]="true" [loop]="true" #slideWithNav>
-        <ng-template swiperSlide>
-            <img src="{{this.room.photos?.[0]}}" alt=”slide-1”/>
+        <ng-template swiperSlide class="swiperSlide">
+            <img [src]="this.room.photos?.[0]" alt=”slide-1”/>
         </ng-template>
         <ng-template swiperSlide>
-            <img src="{{this.room.photos?.[1]}}" alt=”slide-2” />
+            <img [src]="this.room.photos?.[1]" alt=”slide-2”/>
         </ng-template>
         <ng-template swiperSlide>
-            <img src="{{this.room.photos?.[2]}}" alt=”slide-3” />
+            <img [src]="this.room.photos?.[2]" alt=”slide-3” />
         </ng-template>
     </swiper>
     <div class="btn-back" [routerLink]="['/rooms-list']">

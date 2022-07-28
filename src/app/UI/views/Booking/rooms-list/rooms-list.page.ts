@@ -2,6 +2,7 @@ import { Component, ViewChild, ViewEncapsulation, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IonContent } from "@ionic/angular";
 import { RoomsService } from 'src/app/infraestructure/driven-adapter/rooms.service';
+import { BookingService } from '../../../../infraestructure/driven-adapter/booking.service';
 import SwiperCore, { Autoplay, Keyboard, Pagination, Scrollbar, Zoom } from 'swiper';
 SwiperCore.use([Autoplay, Keyboard, Pagination, Scrollbar, Zoom]);
 import { SwiperComponent } from 'swiper/angular';
@@ -18,8 +19,9 @@ export class RoomsListPage implements OnInit {
   rooms!:any
   roomslist:any[]=[]
   constructor(
-    public roomsMService : RoomsService,
-    private router : Router
+    public roomsService : RoomsService,
+    private router : Router,
+    public bookingService: BookingService
   ) { }
 
   setFocus(){
@@ -29,6 +31,10 @@ export class RoomsListPage implements OnInit {
   ionViewDidEnter(){
     this.setFocus();
   }
+
+  setIdRoom(id:string) {
+    this.bookingService.setIdRoom(id)
+  }
   
   openPreview(img){
     console.log("img")
@@ -37,7 +43,7 @@ export class RoomsListPage implements OnInit {
   ngOnInit() {
     if (this.swiper)
     this.swiper.updateSwiper({});
-    this.roomsMService.getAllRooms().subscribe(
+    this.roomsService.getAllRooms().subscribe(
       result => {
         this.rooms = result[0]
         this.roomslist = result
