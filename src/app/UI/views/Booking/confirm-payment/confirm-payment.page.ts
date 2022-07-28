@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-confirm-payment',
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./confirm-payment.page.scss'],
 })
 export class ConfirmPaymentPage implements OnInit {
+  
+  thisBooking: any;
+  constructor(
+    private router:Router, 
+    private activatedRoute:ActivatedRoute,
 
-  constructor() { }
+  ) {
+    this.thisBooking = this.router.getCurrentNavigation().extras.state;
+    console.log(this.thisBooking)
+  }
 
   ngOnInit() {
+    
   }
 
 }

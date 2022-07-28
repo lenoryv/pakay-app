@@ -21,6 +21,9 @@ export class GetRoomstUseCases{
     getEnableRooms(): Observable <Rooms[]>{
         return this._roomsGateway.getEnableRooms();
     }
+    getRoomById(idRoom:string): Observable<Rooms>{
+        return this._roomsGateway.getRoomById(idRoom);
+    }
     // getPhotosRooms():Observable <Rooms[]>{
     //     return this._roomsGateway.getPhotosRooms();
     // }

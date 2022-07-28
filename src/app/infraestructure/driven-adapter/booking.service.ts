@@ -12,11 +12,11 @@ export class BookingService {
   }]
 
   booking: any = [{
-    dateIn: new Date(),
+    dateIn: new Date(2022,6,24),
     dateOut: new Date(),
     numberGuests: 2,
-    idRoom: 'room-1',
-    price: 20
+    idRoom: 'room-3',
+    price: 0
   }]
 
   constructor() { }
