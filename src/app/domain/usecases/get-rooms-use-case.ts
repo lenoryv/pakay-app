@@ -13,6 +13,11 @@ export class GetRoomstUseCases{
     getAllRooms(): Observable <Rooms[]>{
         return this._roomsGateway.getAllRooms();
     }
+
+    getRoomById(id: string):Observable <Rooms>{
+        return this._roomsGateway.getRoomById(id);
+    }
+
     getEnableRooms(): Observable <Rooms[]>{
         return this._roomsGateway.getEnableRooms();
     }
