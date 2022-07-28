@@ -33,6 +33,10 @@ export class RoomsListPage implements OnInit {
     console.log("img")
   }
 
+  setRooms(){
+    //this.roomsMService
+  }
+
   getARooms() {
     this.roomsMService.getAllRooms().subscribe(
       result => {
