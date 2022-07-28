@@ -53,6 +53,8 @@ export class BackupInterfacePage implements OnInit {
 
   day = 0;
 
+  payment = "";
+
   constructor(
     private router: Router,
     private roomsService: RoomsService,
@@ -62,8 +64,10 @@ export class BackupInterfacePage implements OnInit {
   
   fecthBooking(){
     this.auxBooking = this.bookingService.getBooking()[0]
+    this.auxBooking.idClient = localStorage.getItem('user')!
     this.fecthRoom(this.auxBooking)
   }
+
 
   fecthRoom(booking:Booking){
     this.roomsService.getRoomById(booking.idRoom).subscribe(
@@ -92,18 +96,17 @@ export class BackupInterfacePage implements OnInit {
     return  this.booking.price
   } 
 
-  summit(){
-    this.bookingMicroService.postNewBooking().subscribe(
-      result =>{
-        console.log(result)
-      }
-    )
-  }
-
-
   goPayment(){
-    this.router.navigate(['/confirm-payment'])
-    console.log("********")
+    if(this.payment === "paypal"){
+      this.bookingMicroService.postNewBooking(this.booking).subscribe(
+        result =>{
+          console.log(result)
+        }
+      )
+      this.router.navigateByUrl('/confirm-payment',{state: this.booking})
+      
+      console.log("********")
+    }
   }
 
   goBack(){

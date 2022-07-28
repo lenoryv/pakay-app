@@ -9,11 +9,11 @@
   </section>
   <section class="container1">
     <div class="images">
-      <img [src]="booking?.room?.photos" alt="">
+      <img [src]="thisBooking?.room?.photos" alt="">
     </div>
     <div class="contInfo">
-      <h3 class="titleImg">{{booking?.room?.type}}</h3>
-      <p class="infoImg">{{booking?.room?.description}}</p>
+      <h3 class="titleImg">{{thisBooking?.room?.type}}</h3>
+      <p class="infoImg">{{thisBooking?.room?.description}}</p>
     </div>
   </section>
   <div class="separator"></div>
@@ -22,7 +22,7 @@
     <section class="editCont">
       <div class="edit">
         <span class="dateEdit">Fechas</span>
-        <p *ngIf="booking" class="infoEdit">{{booking!.dateIn|date:"dd"}}-{{booking!.dateOut|date:"dd"}} de {{booking!.dateOut|date:"MMM"}} de {{booking!.dateOut|date:"yyyy"}}</p>
+        <p class="infoEdit">{{thisBooking?.dateIn|date:"dd"}}-{{thisBooking?.dateOut|date:"dd"}} de {{thisBooking?.dateOut|date:"MMM"}} de {{thisBooking?.dateOut|date:"yyyy"}}</p>
       </div>
       <!-- <div class="editBtn">  
         <ion-button class="buttonStyle">Editar</ion-button>
@@ -31,7 +31,7 @@
     <section class="editCont">
       <div class="edit"> 
         <span class="dateEdit">Huéspedes</span>
-        <p class="infoEdit">{{booking?.numberGuests}} Huéspedes</p>
+        <p class="infoEdit"> {{thisBooking?.numberGuests}} Huéspedes</p>
       </div>
       <!-- <div class="editBtn">
         <ion-button class="buttonStyle">Editar</ion-button>
@@ -42,7 +42,7 @@
   <section class="container3">
     <h3 class="titleCont3">Detalles de Precio</h3>
     <div class="price">
-      <p class="infoPrice">{{booking?.room?.price| number : '1.0-0'}} x {{day}} noches</p>
+      <p class="infoPrice">{{thisBooking?.room?.price| number : '1.0-0'}} x {{day}} noches</p>
       <p class="infoPrice2">{{tmpPrice}}</p>
     </div>
     <div class="price">
@@ -51,11 +51,11 @@
     </div>
     <div class="price">
       <p class="infoPrice3">Total en USD</p>
-      <p class="infoPrice4">{{booking?.price| number : '1.0-0'}}</p>
+      <p class="infoPrice4">{{thisBooking?.price| number : '1.0-0'}}</p>
     </div>
   </section>
   <div class="separator"></div>
-  <section class="container4">
+  <!-- <section class="container4">
     <h3 class="titleCont2">Elige cómo quieres pagar</h3>
     <button id="open-custom-dialog" class="selectPayment">Plataforma de pago</button>
     <ion-modal class="modalCont" id="example-modal" #modal trigger="open-custom-dialog">
@@ -63,7 +63,7 @@
         <div class="wrapper">
           <ion-list lines="none">
             <ion-list>
-              <ion-radio-group [(ngModel)]="payment" value="payment">
+              <ion-radio-group value="payment">
                 <ion-list-header>
                   <ion-label class="modalTitle">Pagar con</ion-label>
                 </ion-list-header>
@@ -88,5 +88,5 @@
         </div>
       </ng-template>
     </ion-modal>
-  </section>
+  </section> -->
 </ion-content>

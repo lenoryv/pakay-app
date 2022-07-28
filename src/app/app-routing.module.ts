@@ -22,18 +22,24 @@ const routes: Routes = [
   },
   {
     path: 'confirm-payment',
+    data:{},
     loadChildren: () => import('./UI/views/Booking/confirm-payment/confirm-payment.module').then( m => m.ConfirmPaymentPageModule)
   },
   {
     path: 'backup-interface',
     loadChildren: () => import('./UI/views/Booking/backup-interface/backup-interface.module').then( m => m.BackupInterfacePageModule)
-  },  {
+  },
+  {
     path: 'info-booking-view',
     loadChildren: () => import('./UI/views/Booking/info-booking-view/info-booking-view.module').then( m => m.InfoBookingViewPageModule)
   },
   {
     path: 'booking-view',
     loadChildren: () => import('./UI/views/Booking/booking-view/booking-view.module').then( m => m.BookingViewPageModule)
+  },
+  {
+    path: 'booking-interface',
+    loadChildren: () => import('./UI/views/Booking/booking-interface/booking-interface.module').then( m => m.BookingInterfacePageModule)
   },
 
 ]

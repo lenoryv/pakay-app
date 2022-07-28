@@ -17,11 +17,19 @@ export class BookingMicroNodeService extends BookingGateway{
         return this.http.get<Booking[]>(this._url, requestOptions)
     }
 
-    postNewBooking():Observable<Booking>{
+    getBookingById(id:string):Observable<Booking>{
         const headers = new HttpHeaders({
             'Content-Type': 'text/plain',
           });
         const requestOptions = { headers: headers };
-        return this.http.post<any>(this._url,requestOptions);
+        return this.http.get<Booking>(this._url +"/"+id,requestOptions);
+    }
+
+    postNewBooking(booking:Booking):Observable<Booking>{
+        const headers = new HttpHeaders({
+            'Content-Type': 'text/plain',
+          });
+        const requestOptions = { headers: headers };
+        return this.http.post<any>(this._url,booking, requestOptions);
     }
 }

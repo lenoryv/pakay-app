@@ -6,6 +6,6 @@
   <div id="container">
     <strong>Pago realizado</strong>
     <p><a target="_blank">Tu reserva ha sido realizada con éxito</a></p>
-    <ion-button>Confirmar Reserva</ion-button>
+    <ion-button [routerLink]="['/booking-interface']" [state]="this.thisBooking">Confirmar Reserva</ion-button>
   </div>
 </ion-content>
