@@ -1,22 +1,22 @@
 <ion-header no-border>
   <ion-toolbar>
-    <ion-title>PAKAY HOTEL</ion-title>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="home"></ion-back-button>
-    </ion-buttons>
+    <ion-title>SONESTA HOTEL</ion-title>
   </ion-toolbar>
-  <ion-searchbar animated
-      (ionChange)="buscar($event)">
-  </ion-searchbar>
+  <!-- <ion-button type="submit" class="buttonStyle" onclick="">¿Qué habitación desea?</ion-button> -->
 </ion-header>
 
-
-
-  <!-- Scrollable Segment -->
-<ion-content>
-  <ion-tab>
-  <ion-segment>
-    <ion-segment-button value="rooms">
+<ion-content #content [scrollEvents]="true">
+  <section>
+  <div class="header">
+    <h1 class="title">SONESTA HOTEL</h1>
+  </div>
+  <div class="cont-btn1">
+    
+  </div>
+  <div class="segments">
+  
+  <ion-segment>  
+    <ion-segment-button value="rooms-list">
       <ion-icon name="home-outline"></ion-icon>
       <ion-label>Habitaciones</ion-label>
     </ion-segment-button>
@@ -29,19 +29,16 @@
       <ion-label>Contactos</ion-label>
     </ion-segment-button>
   </ion-segment>
-  
-</ion-tab>
-  <ion-card>
+  </div>
+    <!-- Scrollable Segment -->
+  <div class="cards">
+    <ion-card>
     <ion-card-header>
-      <swiper [autoplay]="true" [keyboard]="true" [pagination]="true" [scrollbar]="true" [zoom]="true">
+      <swiper [autoplay]="true" [keyboard]="true" [pagination]="true" [scrollbar]="true" [zoom]="true"  (click)="getARooms()">
         <ng-template swiperSlide>
-          <img src="assets/images/Individual_1/individual11.jpg" tappable (click)="openPreview(img)">
-        </ng-template>
-        <ng-template swiperSlide>
-          <img src="assets/images/Individual_1/individual12.jpg" tappable (click)="openPreview(img)">
-        </ng-template>
-        <ng-template swiperSlide>
-          <img src="assets/images/Individual_1/individual13.jpg" tappable (click)="openPreview(img)">
+          <ul>
+            <li *ngFor="let element of data">{{element.photos}}</li>
+          </ul>
         </ng-template>
       </swiper>
       <ion-card-title>Normal, Individual 1A</ion-card-title>
@@ -52,11 +49,13 @@
       Brinda 1 cama individual, 1 armario individual y 1 baño.
     </ion-card-content>
   </ion-card>
-  
+</div>
+
   <!-- 2do CARRUSEL -->
+<div class="cards">
   <ion-card>
     <ion-card-header>
-      <swiper [autoplay]="true" [keyboard]="true" [pagination]="true" [scrollbar]="true" [zoom]="true">
+      <swiper [autoplay]="true" [keyboard]="true" [pagination]="true" [scrollbar]="true" [zoom]="true" (click)="submit()">
         <ng-template swiperSlide>
           <img src="assets/images/Individual_2/individual21.jpg" tappable (click)="openPreview(img)">
         </ng-template>
@@ -72,11 +71,13 @@
       Brinda 1 cama individual, 1 armario individual, 1 baño y 1 minibar.
     </ion-card-content>
   </ion-card>
+</div>
 
   <!-- 3er CARRUSEL -->
+<div class="cards">
   <ion-card>
     <ion-card-header>
-      <swiper [autoplay]="true" [keyboard]="true" [pagination]="true" [scrollbar]="true" [zoom]="true">
+      <swiper [autoplay]="true" [keyboard]="true" [pagination]="true" [scrollbar]="true" [zoom]="true" (click)="submit()">
         <ng-template swiperSlide>
           <img src="assets/images/Familiar_1/familiar11.jpg" tappable (click)="openPreview(img)">
         </ng-template>
@@ -98,11 +99,12 @@
       Brinda 1 cama de tres plazas, 1 cama individual, 1 armario individual, 1 baño y 1 minibar.
     </ion-card-content>
   </ion-card>
-
+</div>
     <!-- 4to CARRUSEL -->
+  <div class="cards">
     <ion-card>
       <ion-card-header>
-        <swiper [autoplay]="true" [keyboard]="true" [pagination]="true" [scrollbar]="true" [zoom]="true">
+        <swiper [autoplay]="true" [keyboard]="true" [pagination]="true" [scrollbar]="true" [zoom]="true" (click)="submit()">
           <ng-template swiperSlide>
             <img src="assets/images/Familiar_2/familiar21.jpg" tappable (click)="openPreview(img)">
           </ng-template>
@@ -118,11 +120,12 @@
         Brinda 2 camas de tres plazas, 1 litera, 1 minibalcón, 1 televisor 64 pulg, 2 armarios individuales, 2 baños, jacuzzi y 1 minibar.
       </ion-card-content>
     </ion-card>
-    
+  </div>
     <!-- 5to CARRUSEL -->
+  <div class="cards">
     <ion-card>
       <ion-card-header>
-        <swiper [autoplay]="true" [keyboard]="true" [pagination]="true" [scrollbar]="true" [zoom]="true">
+        <swiper [autoplay]="true" [keyboard]="true" [pagination]="true" [scrollbar]="true" [zoom]="true" (click)="submit()">
           <ng-template swiperSlide>
             <img src="assets/images/Matrimonial_1/matrimonial11.jpg" tappable (click)="openPreview(img)">
           </ng-template>
@@ -144,11 +147,12 @@
         Brinda 1 cama de tres plazas decorada, 1 televisor 64 pulg, 1 armario individual, 1 baño, jacuzzi y 1 minibar.
       </ion-card-content>
     </ion-card>
-    
+  </div>  
     <!-- 6to CARRUSEL -->
+  <div class="cards">  
     <ion-card>
       <ion-card-header>
-        <swiper [autoplay]="true" [keyboard]="true" [pagination]="true" [scrollbar]="true" [zoom]="true">
+        <swiper [autoplay]="true" [keyboard]="true" [pagination]="true" [scrollbar]="true" [zoom]="true" (click)="submit()">
           <ng-template swiperSlide>
             <img src="assets/images/Matrimonial_2/matrimonial21.jpg" tappable (click)="openPreview(img)">
           </ng-template>
@@ -169,9 +173,11 @@
     </ion-card>
    <!-- </ion-item>
   </ion-list> -->
-<!-- </section> -->
+</div>
+</section>
 
 </ion-content>
+<div class="tabs">
 <ion-tab>
 
   <ion-tab-bar slot="bottom">
@@ -181,7 +187,7 @@
       <ion-label>Search</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="confirm-payment">
+    <ion-tab-button tab="">
       <ion-icon name="newspaper"></ion-icon>
       <ion-label>Booking</ion-label>
     </ion-tab-button>
@@ -193,4 +199,3 @@
 
   </ion-tab-bar>
 </ion-tab>
-<!--  -->
