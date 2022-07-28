@@ -5,7 +5,7 @@ export interface Rooms{
     numBeds?: number,
     photos?: string,
     price?: number,
-    stateCleanliness: boolean,
+    stateCleanliness?: boolean,
     type?: string
 }
 
