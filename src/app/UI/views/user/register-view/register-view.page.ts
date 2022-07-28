@@ -1,6 +1,7 @@
 import { ClientMicroNodeService } from './../../../../infraestructure/driven-adapter/clientMicroNode.service';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-view',
@@ -12,7 +13,8 @@ export class RegisterViewPage implements OnInit {
   countries: any[]=[];
   constructor(
     public formBuilder: FormBuilder,
-    private clienMService : ClientMicroNodeService
+    private clienMService : ClientMicroNodeService,
+    private router:Router
   ) {
     this.registerForm = this.formBuilder.group({
       dni: ['',[Validators.required]],
@@ -58,7 +60,8 @@ export class RegisterViewPage implements OnInit {
       
       this.clienMService.createClient(form).subscribe(
         result => {
-          console.log(result)
+          console.log(result);
+          this.router.navigate(['/login-view'])
         }
       )   
   }
