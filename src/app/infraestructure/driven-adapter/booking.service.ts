@@ -42,7 +42,9 @@ export class BookingService {
   addBooking (booking:any){
     this.booking.push(booking);
   }
-
+  getIdRoom () {
+    return this.booking.idRoom;
+  }
   getDataFilter(){
     return this.dataFilter;
   }

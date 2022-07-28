@@ -1,4 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { RoomsService } from '../../../../infraestructure/driven-adapter/rooms.service';
+import { BookingService } from '../../../../infraestructure/driven-adapter/booking.service';
+
 
 @Component({
   selector: 'app-booking-view',
@@ -17,7 +20,24 @@ export class BookingViewPage implements OnInit {
     }
   };
 
-  constructor() { }
+  booking:any = this.bookingService.getBooking();
+  infoBooking:any = this.bookingService.getDataFilter();
+
+  room: any = this.roomsService.getRoomById(this.booking[0].idRoom).subscribe((result)=>{
+    this.room = result;
+    console.log('Result: ', result);
+  });
+
+
+  setBooking(){
+    this.bookingService.setBooking(this.infoBooking[0].numberGuests, this.infoBooking[0].dateIn, 
+      this.infoBooking[0].dateOut, this.booking[0].idRoom, this.room.price);
+      console.log('Result: ', this.bookingService.getBooking());
+  }
+
+  constructor(public roomsService: RoomsService, public bookingService: BookingService) {
+
+  }
 
   ngOnInit() {
   }

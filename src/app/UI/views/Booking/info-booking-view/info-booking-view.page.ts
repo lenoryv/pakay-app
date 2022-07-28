@@ -44,6 +44,20 @@ export class InfoBookingViewPage implements OnInit {
     console.log('Booking-Service: ', this.book);
   }
 
+  cleanFilter() {
+    this.numberGuests = 0;
+    this.adults = 0;
+    this.children = 0;
+    this.babies = 0;
+    this.btnDisabledA = true;
+    this.btnDisabledA = true;
+    this.btnDisabledA = true;
+    this.range = new FormGroup({
+      start: new FormControl<Date | null>(null),
+      end: new FormControl<Date | null>(null),
+    });
+  }
+
   //Count
   more(type: number) {
     switch (type) {
