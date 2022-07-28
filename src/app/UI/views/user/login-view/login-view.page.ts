@@ -54,6 +54,9 @@ export class LoginViewPage implements OnInit {
     // this.router.navigate(['/rooms-list'])
   }
 
+  goToRegisterView(){
+    this.router.navigate(['/register-view'])
+  }
   
 
   ngOnInit() {
