@@ -8,14 +8,14 @@ export class BookingService {
   dataFilter: any = [{
     dateIn: new Date(),
     dateOut: new Date(),
-    numberGuests: 2
+    numberGuests: 0
   }]
 
   booking: any = [{
     dateIn: new Date(2022,6,24),
     dateOut: new Date(),
     numberGuests: 2,
-    idRoom: 'room-3',
+    idRoom: '',
     price: 0
   }]
 

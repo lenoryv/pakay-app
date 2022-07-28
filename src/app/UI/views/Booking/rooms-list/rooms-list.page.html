@@ -1,76 +1,76 @@
 <ion-content #content [scrollEvents]="true">
-  <section class="header">
-    <div class="title">
-      SONESTA HOTEL
-    </div>
-    <div class="cont-btn1">
-      <ion-button class="buttonStyle" [routerLink]="['/booking-view']">¿Qué habitación desea?</ion-button>
-    </div>
-  </section>
-  <div class="separator"></div>
-  <section class="segments">
-    <div class="container1">
-      <ion-segment>  
-        <ion-segment-button value="rooms-list">
-          <ion-icon name="home-outline"></ion-icon>
-          <ion-label>Habitaciones</ion-label>
-        </ion-segment-button>
-        <ion-segment-button [routerLink]="['/booking-view']">
-          <ion-icon name="Restaurant-outline"></ion-icon>
-          <ion-label>Servicios</ion-label>
-        </ion-segment-button>
-        <ion-segment-button value="contact">
-          <ion-icon name="call-outline"></ion-icon>
-          <ion-label>Contactos</ion-label>
-        </ion-segment-button>
-      </ion-segment>
-      </div>
-  </section>
-  <div class="separator"></div>
-  <section *ngFor="let room of roomslist">
-    <ion-card [routerLink]="['/booking-view']" (click)="setIdRoom()">
-      <ion-card-header>
-        <swiper [autoplay]="true" [keyboard]="true" [pagination]="true" [scrollbar]="true" [zoom]="true" >
-          <ng-template swiperSlide>
-            <img [src]="room?.photos?.[0]" alt=”slide-1”/>
-          </ng-template>
-          <ng-template swiperSlide>
-            <img [src]="room?.photos?.[1]" alt=”slide-2”/>
-          </ng-template>
-          <ng-template swiperSlide>
-            <img [src]="room?.photos?.[2]" alt=”slide-3”/>
-          </ng-template>
-        </swiper>
-        <ion-card-title>{{room?.type}}</ion-card-title>
-        <ion-card-subtitle>{{room?.price}}</ion-card-subtitle>
-      </ion-card-header>
-    
-      <ion-card-content>
-        {{room?.description}}
-      </ion-card-content>
-    </ion-card>
-  </section>
-  <div class="separator"></div>
-  <section class="tabs">
-      <ion-tab-bar slot="bottom">
-        
-        <ion-tab-button tab="confirm-payment">
-          <ion-icon name="search"></ion-icon>
-          <ion-label>Search</ion-label>
-        </ion-tab-button>
-    
-        <ion-tab-button [routerLink]="['/booking-view']">
-          <ion-icon name="newspaper"></ion-icon>
-          <ion-label>Booking</ion-label>
-        </ion-tab-button>
-    
-        <ion-tab-button tab="confirm-payment">
-          <ion-icon name="person"></ion-icon>
-          <ion-label>Profile</ion-label>
-        </ion-tab-button>
-    
-      </ion-tab-bar>
-  </section>
-</ion-content>
+    <section class="header">
+        <div class="title">
+            SONESTA HOTEL
+        </div>
+        <div class="cont-btn1">
+            <ion-button class="buttonStyle" [routerLink]="['/info-booking-view']">¿Qué habitación desea?
+                <ion-icon class="ion-icon" name="search-outline"></ion-icon>
+            </ion-button>
+        </div>
+    </section>
+    <div class="separator"></div>
+    <section class="segments">
+        <div class="container1">
+            <ion-segment>
+                <ion-segment-button value="rooms-list">
+                    <ion-icon name="home-outline"></ion-icon>
+                    <ion-label>Habitaciones</ion-label>
+                </ion-segment-button>
+                <ion-segment-button [routerLink]="['/booking-view']">
+                    <ion-icon name="Restaurant-outline"></ion-icon>
+                    <ion-label>Servicios</ion-label>
+                </ion-segment-button>
+                <ion-segment-button value="contact">
+                    <ion-icon name="call-outline"></ion-icon>
+                    <ion-label>Contactos</ion-label>
+                </ion-segment-button>
+            </ion-segment>
+        </div>
+    </section>
+    <div class="separator"></div>
+    <section *ngFor="let room of roomslist">
+        <ion-card [routerLink]="['/booking-view']" (click)="setIdRoom(room?.id)">
+            <ion-card-header>
+                <swiper [autoplay]="true" [keyboard]="true" [pagination]="true" [scrollbar]="true" [zoom]="true">
+                    <ng-template swiperSlide>
+                        <img [src]="room?.photos?.[0]" alt=”slide-1”/>
+                    </ng-template>
+                    <ng-template swiperSlide>
+                        <img [src]="room?.photos?.[1]" alt=”slide-2”/>
+                    </ng-template>
+                    <ng-template swiperSlide>
+                        <img [src]="room?.photos?.[2]" alt=”slide-3”/>
+                    </ng-template>
+                </swiper>
+                <ion-card-title>{{room?.type}}</ion-card-title>
+                <ion-card-subtitle>{{room?.price}}</ion-card-subtitle>
+            </ion-card-header>
 
-  
+            <ion-card-content>
+                {{room?.description}}
+            </ion-card-content>
+        </ion-card>
+    </section>
+    <div class="separator"></div>
+    <section class="tabs">
+        <ion-tab-bar slot="bottom">
+
+            <ion-tab-button tab="confirm-payment">
+                <ion-icon name="search"></ion-icon>
+                <ion-label>Search</ion-label>
+            </ion-tab-button>
+
+            <ion-tab-button [routerLink]="['/booking-view']">
+                <ion-icon name="newspaper"></ion-icon>
+                <ion-label>Booking</ion-label>
+            </ion-tab-button>
+
+            <ion-tab-button tab="confirm-payment">
+                <ion-icon name="person"></ion-icon>
+                <ion-label>Profile</ion-label>
+            </ion-tab-button>
+
+        </ion-tab-bar>
+    </section>
+</ion-content>

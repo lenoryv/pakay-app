@@ -1,7 +1,6 @@
 @import '~swiper/scss';
 @import '~@ionic/angular/css/ionic-swiper';
-
- .header {
+.header {
     display: flex;
     flex-direction: column;
     margin-left: 3.5vh;
@@ -15,7 +14,7 @@
     color: var(--ion-color-black);
 }
 
-.cont-btn1{
+.cont-btn1 {
     margin: 2.5vh;
     display: flex;
     width: 83%;
@@ -37,14 +36,20 @@
     margin-top: 1vh;
 }
 
-.buttonStyle{
+.buttonStyle {
     color: var(--ion-color-black);
+    display: flex;
+    justify-content: space-between;
     font-size: 0.75em;
     width: 80vw;
     height: 2.3rem;
-    border-radius: 6px;
+    border-radius: 25px;
     border: solid var(--ion-color-black) 1.2px;
     --background: var(--ion-color-primary-contrast);
+}
+
+.ion-icon {
+    margin-left: 24px;
 }
 
 .swiper-container {
