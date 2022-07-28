@@ -18,6 +18,11 @@ export class RoomsService extends RoomsGateway{
       const requestOptions = { headers: headers };
       return this.http.get<Rooms[]>(this._url,requestOptions)
     }
+
+    getRoomById(idRoom: string): Observable<Rooms> {
+      return this.http.get<Rooms>(this._url+`/`+idRoom)
+    }
+
     getEnableRooms(): Observable<Rooms[]> {
       const headers = new HttpHeaders({
         'Content-Type': 'text/plain',
