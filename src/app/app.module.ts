@@ -11,6 +11,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ClientGateway } from './domain/models/gateway/client-gateway';
 import { ClientMicroNodeService } from './infraestructure/driven-adapter/clientMicroNode.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RoomsService } from './infraestructure/driven-adapter/rooms.service';
+import { RoomsGateway } from './domain/models/gateway/rooms-gateway';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,7 +27,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    { provide: ClientGateway, useClass: ClientMicroNodeService}
+    { provide: ClientGateway, useClass: ClientMicroNodeService},
+    {provide: RoomsGateway, useClass: RoomsService}
   ],
   bootstrap: [AppComponent],
 })
