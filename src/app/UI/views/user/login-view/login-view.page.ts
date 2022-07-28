@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
 import { IonContent } from "@ionic/angular";
 import { ClientMicroNodeService } from 'src/app/infraestructure/driven-adapter/clientMicroNode.service';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login-view',
@@ -18,7 +19,8 @@ export class LoginViewPage implements OnInit {
   constructor(
     public formBuilder: FormBuilder,
     private clienMService : ClientMicroNodeService,
-    private router:Router
+    private router:Router,
+    public toast: ToastController
   ) { 
     this.ionicForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.minLength(2)]],
@@ -43,6 +45,18 @@ export class LoginViewPage implements OnInit {
   }
 
   submit() {
+
+    /* if(!this.ionicForm.valid){
+      return;
+    }
+    const { email, password } = this.ionicForm.value;
+    var obs = this.clienMService.authClient(this.formBuilder).pipe(
+      this.toast .create({
+        message: 'Your settings have been saved.',
+        duration: 2000
+      });
+      obs.present();
+    ) */
     console.log(typeof this.ionicForm.value)
     this.clienMService.authClient(this.ionicForm.value).subscribe(
       result => {
@@ -50,6 +64,7 @@ export class LoginViewPage implements OnInit {
       }
     )    
   }
+
   goToRoomList(){
     // this.router.navigate(['/rooms-list'])
   }

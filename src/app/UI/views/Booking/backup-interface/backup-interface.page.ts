@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Data, Router } from '@angular/router';
+import { BookingService } from 'src/app/infraestructure/driven-adapter/booking.service';
+import { BookingMicroNodeService } from 'src/app/infraestructure/driven-adapter/bookingMicroNode.service';
+import { RoomsService } from 'src/app/infraestructure/driven-adapter/rooms.service';
 
 export interface Booking{
   id: string;
@@ -46,19 +49,35 @@ export class BackupInterfacePage implements OnInit {
 
   constructor(
     private router: Router,
-    //private roomsService: roosMicroService,
+    private roomsService: RoomsService,
+    private bookingService: BookingService,
+    private bookingMicroService: BookingMicroNodeService,
   ) { }
+  
+  calculatePrice(){
+    
+  }   
+
 
   fecthRoom(booking:Booking){
-    /*
-      this.roomsService.getRoomById(booking.idRoom).subscribe(
-        room =>{
-          Let aux: AuxBooking = {...booking,idRoom:room}
-          this.booking = aux
-        }
-      )
-    */
+    this.roomsService.getRoomById(booking.idRoom).subscribe(
+      room =>{
+        let aux: AuxBooking = {...booking,room:room}
+        this.booking = aux
+      }
+    )
   }
+
+
+  summit(){
+    this.bookingMicroService.postNewBooking().subscribe(
+      result =>{
+        console.log(result)
+      }
+    )
+  }
+
+
   goPayment(){
     this.router.navigate(['/confirm-payment'])
     console.log("********")
