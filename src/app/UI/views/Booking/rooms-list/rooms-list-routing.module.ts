@@ -6,18 +6,18 @@ const routes: Routes = [
   {
     path: '',
     component: RoomsListPage,
-    children:[
-      {
-        path: 'confirm-payment',
-        loadChildren: () => import('../confirm-payment/confirm-payment.module').then( m => m.ConfirmPaymentPageModule)
-      },
-      {
-        path: '',
-        redirectTo: 'rooms-list',
-        pathMatch: 'full'
-      }
-    ]
-  }
+  },
+  // ,
+  // {
+  //   path: 'confirm-payment',
+  //   loadChildren: () => import('../confirm-payment/confirm-payment.module').then( m => m.ConfirmPaymentPageModule)
+  // }
+    // ,
+  // {
+  //   path: 'booking-view',
+  //   loadChildren: () => import('./UI/views/Booking/rooms-list/rooms-list.module').then( m => m.RoomsListPageModule)
+  // }
+  
 ];
 
 @NgModule({
