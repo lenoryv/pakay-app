@@ -1,37 +1,35 @@
 <ion-content>
     <swiper class="swiper" pager="true" [initialSlide]="0" [slidesPerView]="1" [autoplay]="true" [loop]="true" #slideWithNav>
         <ng-template swiperSlide>
-            <img src="https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt=”slide-1”/>
+            <img src="{{this.room.photos?.[0]}}" alt=”slide-1”/>
         </ng-template>
         <ng-template swiperSlide>
-            <img src="https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt=”slide-2” />
+            <img src="{{this.room.photos?.[1]}}" alt=”slide-2” />
         </ng-template>
         <ng-template swiperSlide>
-            <img src="https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt=”slide-3” />
+            <img src="{{this.room.photos?.[2]}}" alt=”slide-3” />
         </ng-template>
     </swiper>
     <div class="btn-back" [routerLink]="['/rooms-list']">
         <ion-icon name="arrow-back-outline"></ion-icon>
     </div>
     <div class="room-name">
-        <h5>Suite</h5>
-        <span class="caption">Individual</span>
+        <h5>Seccion</h5>
+        <span class="caption">{{this.room.type}}</span>
     </div>
     <div class="description">
-        <p class="body-1">
-            Habitación con cama Queen size. Decoración elegante y clásica con lujosas telas. Sala de estar separada con sofá y sillones. Vistas a la villa de Estoril. Baño en mármol; algunos con bañera y ducha separados.
-        </p>
+        <p class="body-1">{{this.room.description}}</p>
     </div>
     <div class="detail-room">
         <h6>Detalles de la habitación</h6>
         <div class="beds">
-            <span class="body-2">2 camas dobles</span>
+            <span class="body-2">{{this.room.numBeds}} camas dobles</span>
             <ion-icon name="bed-outline"></ion-icon>
         </div>
         <span class="body-2">Tamaño de la habitación: 25 metros cuadrados </span>
     </div>
     <div class="footer">
-        <h6>$ 36/noche </h6>
-        <ion-button class="ion-btn-secondary" fill="outline" style="text-transform:none" [routerLink]="['/backup-interface']">Reservar</ion-button>
+        <h6>$ {{this.room.price}}/noche </h6>
+        <ion-button class="ion-btn-secondary" fill="outline" style="text-transform:none" [routerLink]="['/backup-interface']" (click)="setBooking()">Reservar</ion-button>
     </div>
 </ion-content>
