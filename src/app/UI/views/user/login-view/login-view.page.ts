@@ -45,21 +45,10 @@ export class LoginViewPage implements OnInit {
   }
 
   submit() {
-
-    /* if(!this.ionicForm.valid){
-      return;
-    }
-    const { email, password } = this.ionicForm.value;
-    var obs = this.clienMService.authClient(this.formBuilder).pipe(
-      this.toast .create({
-        message: 'Your settings have been saved.',
-        duration: 2000
-      });
-      obs.present();
-    ) */
     console.log(typeof this.ionicForm.value)
     this.clienMService.authClient(this.ionicForm.value).subscribe(
       result => {
+        localStorage.setItem('user',result.user.id)
         console.log(result)
       }
     )    

@@ -15,7 +15,7 @@ export class BookingService {
     dateIn: new Date(2022,6,24),
     dateOut: new Date(),
     numberGuests: 2,
-    idRoom: 'room-2',
+    idRoom: 'room-3',
     price: 0
   }]
 
