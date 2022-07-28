@@ -21,8 +21,10 @@ export class BookingService {
 
   constructor() { }
 
-  addFilter (params:any){
-    this.dataFilter.push(params);
+  setFilter (numberGuests:number, dateIn:Date, dateOut:Date){
+    this.dataFilter[0].numberGuests = numberGuests
+    this.dataFilter[0].dateIn = dateIn;
+    this.dataFilter[0].dateOut = dateOut;
   }
 
   addBooking (booking:any){
