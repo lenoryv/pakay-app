@@ -17,7 +17,7 @@
                     <ion-icon name="home-outline"></ion-icon>
                     <ion-label>Habitaciones</ion-label>
                 </ion-segment-button>
-                <ion-segment-button [routerLink]="['/booking-view']">
+                <ion-segment-button>
                     <ion-icon name="Restaurant-outline"></ion-icon>
                     <ion-label>Servicios</ion-label>
                 </ion-segment-button>
@@ -28,30 +28,34 @@
             </ion-segment>
         </div>
     </section>
-    <div class="separator"></div>
-    <section *ngFor="let room of roomslist">
-        <ion-card [routerLink]="['/booking-view']" (click)="setIdRoom(room?.id)">
-            <ion-card-header>
-                <swiper [autoplay]="true" [keyboard]="true" [pagination]="true" [scrollbar]="true" [zoom]="true">
-                    <ng-template swiperSlide>
-                        <img [src]="room?.photos?.[0]" alt=”slide-1”/>
-                    </ng-template>
-                    <ng-template swiperSlide>
-                        <img [src]="room?.photos?.[1]" alt=”slide-2”/>
-                    </ng-template>
-                    <ng-template swiperSlide>
-                        <img [src]="room?.photos?.[2]" alt=”slide-3”/>
-                    </ng-template>
-                </swiper>
-                <ion-card-title>{{room?.type}}</ion-card-title>
-                <ion-card-subtitle>{{room?.price}}</ion-card-subtitle>
-            </ion-card-header>
 
-            <ion-card-content>
-                {{room?.description}}
-            </ion-card-content>
-        </ion-card>
+    <section class="sectionImgs">
+        <div class="separator"></div>
+        <section *ngFor="let room of roomslist">
+            <ion-card [routerLink]="['/booking-view']" (click)="setIdRoom(room?.id)">
+                <ion-card-header>
+                    <swiper [autoplay]="true" [keyboard]="true" [pagination]="true" [scrollbar]="true" [zoom]="true">
+                        <ng-template swiperSlide>
+                            <img [src]="room?.photos?.[0]" alt=”slide-1”/>
+                        </ng-template>
+                        <ng-template swiperSlide>
+                            <img [src]="room?.photos?.[1]" alt=”slide-2”/>
+                        </ng-template>
+                        <ng-template swiperSlide>
+                            <img [src]="room?.photos?.[2]" alt=”slide-3”/>
+                        </ng-template>
+                    </swiper>
+                    <ion-card-title>{{room?.type}}</ion-card-title>
+                    <ion-card-subtitle>{{room?.price}}</ion-card-subtitle>
+                </ion-card-header>
+
+                <ion-card-content>
+                    {{room?.description}}
+                </ion-card-content>
+            </ion-card>
+        </section>
     </section>
+
     <div class="separator"></div>
     <section class="tabs">
         <ion-tab-bar slot="bottom">
@@ -61,7 +65,7 @@
                 <ion-label>Search</ion-label>
             </ion-tab-button>
 
-            <ion-tab-button [routerLink]="['/booking-view']">
+            <ion-tab-button>
                 <ion-icon name="newspaper"></ion-icon>
                 <ion-label>Booking</ion-label>
             </ion-tab-button>

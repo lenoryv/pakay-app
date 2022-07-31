@@ -11,9 +11,10 @@ export class BookingService {
     numberGuests: 0
   }]
 
+
   booking: any = [{
-    dateIn: new Date(2022,6,24),
-    dateOut: new Date(),
+    dateIn: new Date(),
+    dateOut: new Date(2022,6,29),
     numberGuests: 2,
     idRoom: '',
     price: 0

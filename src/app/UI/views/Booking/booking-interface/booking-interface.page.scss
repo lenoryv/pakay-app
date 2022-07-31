@@ -1,6 +1,8 @@
 /**/
+
 .header {
     display: flex;
+    flex-direction: row;
     margin: 3.5vh;
     align-items: flex-start;
     justify-content: flex-start;
@@ -13,14 +15,17 @@
     color: var(--ion-color-black);
 }
 
-.backbtn{
+.backbtn {
     margin-right: 2vh;
     font-size: 1em;
 }
 
+
 /**/
+
 .container1 {
     display: flex;
+    flex-direction: row;
     margin-left: 3.5vh;
     margin-right: 3.5vh;
     margin-top: 2vh;
@@ -39,11 +44,12 @@
     border-radius: 10px;
 }
 
-.contInfo{
+.contInfo {
     display: flex;
     flex-direction: column;
     width: 35%;
 }
+
 .titleImg {
     margin-top: 0;
     margin-bottom: 0;
@@ -56,7 +62,9 @@
     font-weight: 600;
 }
 
+
 /**/
+
 .container2 {
     display: flex;
     flex-direction: column;
@@ -104,7 +112,9 @@
     justify-content: flex-end;
 }
 
+
 /**/
+
 .container3 {
     display: flex;
     flex-direction: column;
@@ -158,7 +168,9 @@
     font-weight: 600;
 }
 
+
 /**/
+
 .container4 {
     display: flex;
     flex-direction: column;
@@ -180,7 +192,9 @@
     text-align: start;
 }
 
+
 /*modal*/
+
 .modalCont {
     --width: 75%;
     --min-width: 75vw;
@@ -196,17 +210,21 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.modalLabel{
+.modalLabel {
     color: var(--ion-color-black);
     font-size: 0.75em;
     font-weight: 400;
 }
-.btnModal{
+
+.btnModal {
     display: flex;
     width: 100%;
     justify-content: flex-end;
 }
+
+
 /*botones*/
+
 .buttonStyle {
     color: var(--ion-color-black);
     font-size: 0.75em;
@@ -220,6 +238,7 @@
 .buttonStyle:hover {
     background: rgb(212, 212, 212);
 }
+
 .buttonStyle2 {
     color: var(--ion-color-primary-contrast);
     font-size: 0.75em;
@@ -235,16 +254,17 @@
     background: rgb(212, 212, 212);
 }
 
-/**/
-.separator {
 
+/**/
+
+.separator {
     border-bottom: 1px solid #EDEDED;
     margin-left: 3.5vh;
     margin-right: 3.5vh;
     margin-top: 2vh;
 }
-.separator1 {
 
+.separator1 {
     border-bottom: 1px solid #EDEDED;
     margin-left: 3.5vh;
     margin-right: 3.5vh;
